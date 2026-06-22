@@ -1,0 +1,28 @@
+# GBDK toolchain (download separately via tools/setup.sh)
+tools/gbdk/
+tools/gbdk*.tar.gz
+tools/gbdk*.zip
+
+# Vendored asset source (sparse clone of pret/pokecrystal; fetch via tools/setup.sh)
+gfx/pokecrystal-src/
+
+# Build artifacts
+build/
+*.o
+*.lst
+*.sym
+*.map
+*.ihx
+*.cdb
+*.asm.bak
+*.gb
+*.gbc
+
+# macOS noise
+.DS_Store
+
+# Editor cruft
+*.swp
+*~
+.idea/
+.vscode/
