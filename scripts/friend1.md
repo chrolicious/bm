@@ -457,13 +457,56 @@ NARRATOR: that night moved
           heaven and earth
           to protect you.
 
+[A beat. The bass keeps
+thumping. Two NPC-sprites
+saunter past the entrance,
+elbowing each other.]
+
+NPC 1:    HAH
+
+NPC 2:    GAY!
+
+[Michel-sprite stands up.
+Fast.]
+
+MICHEL:   Halt's Maul
+          du Spasti.
+
+           ! ! !
+
+[Screen shakes. NPCs back
+up a step.]
+
+NPC 1:    woah ok
+
+NPC 2:    we're going
+          we're going
+
+[They leave.]
+
+[Michel-sprite sits back
+down. Close to Tobi.]
+
+[A beat.]
+
+TOBI:     ...
+          [▼]
+          ...heh.
+
+MICHEL:   yeah.
+
+[They sit there.]
+
 [NARRATOR: ▼ Walk on.]
 ```
 
 **Notes on this draft:**
 - **Cold-open structure:** scene begins inside the bar, player follows Tobi out, camera pans up the stairs to reveal him sitting alone, player walks Michel up to him. The player physically performs the *noticing* and the *following*. No exposition needed — by the time they sit down together, the player has already committed to being there with Tobi.
 - **No interrogation.** Tobi tells his truth once, in one breath. Michel doesn't probe. No "this morning?" / "why didn't you say."
-- **Catcallers cut.** The scene is too sacred to be intruded on. The brotherhood reads from the hug + the silence + the eventual "thanks / yeah." No NPCs needed.
+- **Catcallers placed AFTER the narrator coda, not before.** The narrator declares the vow ("i'd move heaven and earth to protect you") — and within seconds, the world tests it. Michel doesn't fight; he just snaps back, in German, with the word that belongs to them. Declaration → test → action → recovery. The structure makes the narrator the *cause* of the protection the player just watched. This is also where **"spasti" transforms one last time**: from Tobi's silent judgment (Sc 1) → peer pressure (absent, Sc 2) → quiet affection (Sc 3) → shared shorthand (Sc 4) → SHIELD pointed outward (Sc 5). The word that started as a dismissal becomes a defense.
+- "HAH" / "GAY!" — two NPCs, two words, syncopated jock mockery. Period-accurate teen homophobia, dispatched in two text boxes so the snap that follows hits harder. (If this lands wrong on a re-read, easy to soften to "HAH / look at those two" — but the bluntness is also what makes Michel's snap meaningful.)
+- "Halt's Maul du Spasti" — the German switch is the *seriousness signal*. Michel doesn't snap in English. He goes home-language, which is the language he and Tobi share. The Aachen-Cologne contraction "Halt's" instead of "Halt dein" is dialect-accurate.
+- Tobi's "...heh." is the seed of recovery. The first crack of light. BWL in Scene 6 is where that recovery fully blooms.
 - The `- hug -` notification + tiny `♥` is intentionally Pokémon-shaped. It lets the moment have a *glyph* without being saccharine. (Alternative: no overlay at all, just sprites adjacent. Will test both in-engine.)
 - "thanks." / "yeah." is the spoken bookend. Then long silence. Then the narrator lands.
 - **Narrator block at the end** — user's own words. Michel's thought arriving in the quiet after the words are done. This is the one moment in the scene the inside-voice surfaces, and it's why the rest of the scene can stay so spare.
