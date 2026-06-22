@@ -341,9 +341,13 @@ TOBI:     ...
 TOBI'S DAD: (offscreen)
             TOBIAS.
             [▼]
-            TOBIAS.
-            WHAT.
-            HAPPENED.
+            MAUEL.
+            [▼]
+            WAS.
+            [▼]
+            ZUM.
+            [▼]
+            FICK.
 
 TOBI:     spasti.
 
