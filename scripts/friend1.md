@@ -355,7 +355,7 @@ MICHEL:   me?
           [▼]
           you puked on yourself
 
-TOBI:     yeah but you LET me
+TOBI:     *sigh*
 
 [NARRATOR: ▼ Walk on.]
 ```
@@ -364,7 +364,7 @@ TOBI:     yeah but you LET me
 - "Spasti" used twice in this scene (once in banter, once after the puke) — now flowing between them, both directions. The word is fully theirs.
 - "TOBIAS" (his full name) from his dad off-screen — that universal *parent uses your full name when furious* moment.
 - The full bilingual touch ("hola guapo", "¿estás seguro?") in the waitress lines is enough to read as Spain without translating.
-- The "you LET me" closer is the kind of victim-blaming joke teenage friends actually make. Reads true.
+- Scene closes on Tobi's wordless `*sigh*` — surrender. Michel just told the truth ("you puked on yourself"), Dad has already used the full middle name, there's nothing left to argue. The sigh is the resignation that lands the comedy.
 
 ---
 
