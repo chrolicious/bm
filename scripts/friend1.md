@@ -362,9 +362,9 @@ TOBI:     *sigh*
 
 **Notes:**
 - "Spasti" used twice in this scene (once in banter, once after the puke) — now flowing between them, both directions. The word is fully theirs.
-- "TOBIAS" (his full name) from his dad off-screen — that universal *parent uses your full name when furious* moment.
+- "TOBIAS MAUEL" — first + last name from his dad off-screen. The universal *parent uses your full name when furious* move, plus a final "WAS ZUM FICK" for the kill shot. Each word on its own page break; pacing is the joke.
 - The full bilingual touch ("hola guapo", "¿estás seguro?") in the waitress lines is enough to read as Spain without translating.
-- Scene closes on Tobi's wordless `*sigh*` — surrender. Michel just told the truth ("you puked on yourself"), Dad has already used the full middle name, there's nothing left to argue. The sigh is the resignation that lands the comedy.
+- Scene closes on Tobi's wordless `*sigh*` — surrender. Michel just told the truth ("you puked on yourself"), Dad has already used the full name, there's nothing left to argue. The sigh is the resignation that lands the comedy.
 
 ---
 
