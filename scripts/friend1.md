@@ -336,26 +336,136 @@ TOBI:     yeah but you LET me
 
 ## Scene 5 — Aachen, the club stairs (CLIMAX)
 
-**Setting:** Street outside a club in Aachen, at night. Dark palette. Bouncer NPC silhouette by the door. Tobi-sprite alone on the stairs.
+**Setting:** Street outside a club in Aachen, at night. Dark palette. Bouncer NPC silhouette by the door. Tobi-sprite alone on the front stairs. Muffled bass thumps from inside.
 
-**Beats:**
-- You both went out clubbing in Aachen.
-- Michel notices Tobi has left the club, follows him out.
-- Tobi is sitting on the stairs in front of the entrance.
-- Michel sits down next to him.
-- Tobi tells Michel his mom died that morning. He hasn't told anyone.
-- He breaks down. Michel hugs him.
-- "I knew I'd love this kid for the rest of my life like a brother."
-- A few guys make fun of them for hugging. Michel flips his shit.
+**Asset notes:** Use a Crystal night-exterior tile (palette-swap any `gfx/tilesets/*night*` set; if none, hand-recolor a city tile). Dim palette throughout — three values, no whites. Bouncer = silhouette only. The hug = sprites pause adjacent, optional small `♥` icon (canonical Pokémon emote in `gfx/emotes/`) or just sprite overlap.
 
-**Mechanically:** The whole scene is one fixed camera angle. No walking. Dialogue. The hug is a sprite overlap with a heart pixel (or no overlay at all — the dialogue carries it). The catcalling guys appear, brief confrontation, Michel-sprite turns and the screen flashes or shakes — keep it short, don't undercut the moment with extended combat.
+**The spine (per user's recollection):** Tobi knew his mom had died that morning. He spent the whole day with the group anyway, and the whole night, because he didn't want to ruin it. Michel realizing this — that Tobi chose to carry it alone for the friends' sake — is the moment the bond becomes brotherhood. *That* is what the player has to feel. Not the death. The choice.
 
-This is the emotional load-bearing scene of the whole game. Every other scene exists to make the player (Tobi) trust the game enough to let this one land.
+**Word policy:** "spasti" is absent from this scene. The word is too small for what's happening. Its absence is the signal that we're somewhere sacred. It returns, transformed, in Scene 6 (BWL) — proof that Tobi recovered the lightness, and that the friendship survived.
 
-**Need from user:**
-- The name of the club, or "a club in Aachen" if unspecified
-- Are you comfortable with the catcalling-guys beat being explicit, or do you want it softer / cut entirely
-- A line Michel actually said, or thought, that night — if you remember one
+**Draft dialogue:**
+
+```
+[AACHEN. Outside the club.
+Late. Cold. The bass from
+inside is muffled by the
+door.]
+
+[Tobi-sprite sits on the
+front stairs. Alone.
+Looking at nothing.]
+
+[Michel-sprite walks out.
+Sees him. Stops.]
+
+[Walks over. Sits down
+next to Tobi.]
+
+MICHEL:   you good?
+
+TOBI:     ...
+
+MICHEL:   tobi.
+          [▼]
+          you good?
+
+TOBI:     ...
+          [▼]
+          my mom died this
+          morning.
+
+[A beat.]
+
+MICHEL:   ...
+          [▼]
+          ...this morning?
+
+TOBI:     yeah.
+
+[Michel does the math.]
+
+MICHEL:   you've been with
+          us all day.
+
+TOBI:     yeah.
+
+MICHEL:   ...
+          [▼]
+          why didn't you say.
+
+TOBI:     I didn't want to
+          ruin the night.
+
+[Michel-sprite turns to
+face him. Tobi is still
+looking at the ground.]
+
+[Michel-sprite scoots over.
+The sprites overlap. A small
+♥ floats up and fades.]
+
+           - hug -
+
+[The bass keeps thumping.
+Time passes. Neither of
+them moves.]
+
+[Two NPC-sprites walk past
+the entrance, laughing.]
+
+NPC 1:    lol
+          [▼]
+          look at those two
+
+NPC 2:    get a room boys
+
+[Michel-sprite stands up.
+Fast.]
+
+MICHEL:   say that again.
+
+           ! ! !
+
+[Screen shakes. NPCs back
+away a step.]
+
+NPC 1:    chill man
+
+NPC 2:    we're going
+
+[They leave.]
+
+[Michel-sprite sits back
+down. Close.]
+
+[Long quiet. The bass keeps
+thumping. The bouncer doesn't
+look over.]
+
+TOBI:     ...
+          [▼]
+          thanks.
+
+MICHEL:   yeah.
+
+[They sit there.]
+
+[NARRATOR: ▼ Walk on.]
+```
+
+**Notes on this draft:**
+- The whole emotional engine is **two lines**: "you've been with us all day" / "I didn't want to ruin the night." No narrator gloss. The player does the math the same way Michel does. That's where the chest tightens.
+- "say that again." is Michel snapping — strong but not profane. Pokémon would never let "fuck" through; "say that again" with a `! ! !` and a screen shake reads more dangerous than any swear. If you want it harder, I can swap in "the FUCK did you say" — but I think the restraint hits harder here.
+- The `- hug -` notification + tiny `♥` is intentionally Pokémon-shaped. It lets the moment have a *glyph* without being saccharine. (Alternative: no overlay at all, just sprites adjacent. Will test both in-engine.)
+- "thanks." / "yeah." is the whole ending. No reflection. No "I love you man." Pokémon dialogue restraint applied to a moment that does not need words.
+- This scene runs no music. Just the muffled bass implied in the captions. Returns to music in Scene 6.
+- Scene 7 (the ask) will open with a callback to this scene — Michel naming what he understood that night, then asking. Spine of the question, the moment it was answered for the first time.
+
+**Decisions still open (small but worth a beat):**
+- "the FUCK did you say" vs "say that again." — your call.
+- Keep the `♥` icon, or just sprite overlap with no overlay.
+- Cut the catcallers entirely — yes/no. The scene is already strong without them. If they feel like they steal the air from "I didn't want to ruin the night," we drop them and end on the hug.
 
 ---
 
