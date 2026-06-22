@@ -14,8 +14,21 @@ A bootleg Pokémon-style GBC "game" Michel is giving Tobi to ask him to be his b
 ## Voice / tone
 
 - Mixed. Comedy bits land hard, emotional bits land harder. Crystal-era Pokémon dialogue cadence (short lines, "...", `\n` line breaks, occasional ALL CAPS for emphasis).
-- Michel calls Tobi: **TBD** (the casual name/nickname Michel actually uses in real life — important, drives every line)
+- Speaker tag and in-dialogue name both: **TOBI** / **Tobi**.
 - They're German — keep it English, but a stray "Alter" or German place name lands as authentic flavor, not affectation.
+
+## Dialogue format
+
+Every dialogue block in this doc maps to one Pokémon-style text box. Box is ~18 chars wide × 2 lines visible at once; a third line scrolls in. We'll use this format and let the engine paginate:
+
+```
+TOBI: line one (≤18 chars)
+      line two (≤18 chars)
+      [▼]
+      line three
+```
+
+`[▼]` = "press A to continue" marker. `...` carries weight — leave it on its own line.
 
 ## Arc
 
@@ -32,15 +45,50 @@ Pokémon "town" structure: 5 rooms / memories, arranged as a short overworld wal
 
 **Setting:** A Pokémon Gen-2-style schoolroom interior. Desks in rows. Michel-sprite sits front-row in a dress shirt. Tobi-sprite in the back.
 
-**Beats:**
-- Player wakes up. Friday. Has to repeat the year because he played too much Counter-Strike: Source.
-- Front row this time. Determined not to flunk again.
-- Dress shirt — because Michel goes straight from school to Meerbusch to see his girlfriend on weekends. Tobi doesn't know this, just thinks Michel is the weird overdressed front-row kid.
-- Tobi (off-screen narration via dialogue box later, or shown as a thought from his sprite) sums up: "Who's that guy?"
+**Asset notes:** reuse `gfx/tilesets/elms_lab.png` palette-swapped, or `gfx/tilesets/players_room.png` repurposed; Michel-sprite = `gfx/player/chris.png` with dress-shirt palette; Tobi = placeholder NPC sprite for prototype.
 
-**Hook line (Tobi's POV, written for later in the game when revealed):**
-> "Every Friday. Dress shirt. Sitting up front like a damn prefect.
->  I thought you were insane."
+**Draft dialogue (first pass, GBC-text-box sized):**
+
+```
+[FADE IN. Year 11. Friday morning.]
+[The player wakes up in his
+seat, front row.]
+
+NARRATOR: Friday.
+          You repeated a year.
+          [▼]
+          Too many late nights
+          on COUNTER-STRIKE.
+          [▼]
+          Not this time.
+
+[Michel takes a notebook out.
+Tobi-sprite visible in back row.]
+
+TOBI:     ...
+          [▼]
+          Who IS this guy?
+          [▼]
+          Dress shirt.
+          AGAIN.
+          [▼]
+          Front row.
+          Every. Damn. Day.
+          [▼]
+          ...alter, what?
+
+[Michel doesn't notice. He's
+thinking about Meerbusch.
+Tobi doesn't know that yet.]
+
+NARRATOR: ▼ Walk to the door.
+```
+
+**Notes on this draft:**
+- Two POVs in one scene: the player as Michel, but Tobi narrates the *judgement*. Sets up that this is a memory game with two perspectives. The reveal later — "I was driving to my girlfriend's" — lands because we plant the dress shirt here.
+- "alter, what?" is the one German word — earns its place as the punchline.
+- "COUNTER-STRIKE" in caps is the Pokémon convention for proper nouns / items. Reads native to the genre.
+- Scene ends with player having to physically walk Michel-sprite to the door. The walk is the transition to Scene 2.
 
 ---
 
