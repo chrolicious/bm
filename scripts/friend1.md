@@ -55,7 +55,7 @@ Seven scenes. The BWL raid sits *after* Aachen on purpose: life kept going. Tobi
 
 ```
 [COLLEGE ROLDUC. HAVO 3.
- Friday morning. Repeat year.]
+ Friday morning.]
 
 [Michel-sprite sits front row.
 Dress shirt. Notebook out.]
@@ -80,7 +80,7 @@ TOBI:     ugh
 ```
 
 **Notes on this draft:**
-- All Tobi, no narrator confession. The "repeat year" lives in the caption header, not in Michel's inner voice. Player gets the setup in one line and moves on.
+- All Tobi, no narrator confession. The "repeat year" backstory is omitted from the scene entirely — Tobi's mocking carries the setup without spelling it out.
 - "ugh / look at this nerd / front row AGAIN?" is the actual cadence of a 16-year-old slumped at the back. Light, dismissive, fun.
 - The Meerbusch dress-shirt mystery still plants here (Tobi wonders why the shirt) — pays off in Scene 7 as a *comedy callback*. (Conzi was high-school, NOT the bride. The payoff is the joke of finally being told the answer 20 years later, not a romantic reveal.)
 - "Spasti." is still the closer, but now it's a teen mutter, not a Shakespearean pronouncement.
