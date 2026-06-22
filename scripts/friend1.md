@@ -54,102 +54,90 @@ Seven scenes. The BWL raid sits *after* Aachen on purpose: life kept going. Tobi
 **Draft dialogue (first pass, GBC-text-box sized):**
 
 ```
-[FADE IN. COLLEGE ROLDUC.
- HAVO 3. Friday morning.]
-[The player wakes up in his
-seat, front row.]
+[COLLEGE ROLDUC. HAVO 3.
+ Friday morning. Repeat year.]
 
-NARRATOR: Friday.
-          You repeated a year.
-          [▼]
-          Too many late nights
-          on COUNTER-STRIKE.
-          [▼]
-          Not this time.
+[Michel-sprite sits front row.
+Dress shirt. Notebook out.]
 
-[Michel takes a notebook out.
-Tobi-sprite visible in back row.]
+[Tobi-sprite in the back,
+slumped on his desk.]
 
-TOBI:     ...
-          Who IS this guy?
+TOBI:     ugh
           [▼]
-          Dress shirt.
-          AGAIN.
+          look at this nerd
           [▼]
-          Front row.
-          Every. Damn. Day.
+          front row AGAIN?
           [▼]
-          Spasti.
+          who wears a dress
+          shirt to school
+          [▼]
+          spasti.
 
-[Michel doesn't notice. He's
-already thinking about the
-drive to Meerbusch tonight.
-Tobi doesn't know about that
-yet.]
+[Bell rings.]
 
-NARRATOR: ▼ Walk to the door.
+[NARRATOR: ▼ Walk to the door.]
 ```
 
 **Notes on this draft:**
-- Two POVs in one scene: the player as Michel, but Tobi narrates the *judgement*. Sets up that this is a memory game with two perspectives. The Meerbusch reveal pays off in Scene 7 (the ask) — "Conzi. That was Conzi."
-- "Spasti." — one word, last line, no exclamation point. The affectionate dismissal lands harder dry.
-- "COUNTER-STRIKE" and "COLLEGE ROLDUC" in caps follow the Pokémon convention for proper nouns / items. Reads native to the genre.
-- Scene ends with player having to physically walk Michel-sprite to the door. The walk is the transition to Scene 2.
+- All Tobi, no narrator confession. The "repeat year" lives in the caption header, not in Michel's inner voice. Player gets the setup in one line and moves on.
+- "ugh / look at this nerd / front row AGAIN?" is the actual cadence of a 16-year-old slumped at the back. Light, dismissive, fun.
+- The Meerbusch dress-shirt mystery still plants here (Tobi wonders why the shirt) — pays off in Scene 7 ("Conzi. That was Conzi.")
+- "Spasti." is still the closer, but now it's a teen mutter, not a Shakespearean pronouncement.
 
 ---
 
 ## Scene 2 — Schoolyard, in front of the gym (~age 16–17)
 
-**Setting:** Outdoor schoolyard tile, College Rolduc gym building in the background. A small cluster of NPC sprites = friends. Michel-sprite walks up.
+**Setting:** Outdoor schoolyard tile, College Rolduc gym building in the background. **Friets, Bram, and Tobi** huddled, talking loud. Michel-sprite walks over.
 
-**Asset notes:** Reuse `gfx/tilesets/johto.png` for outdoor ground, scale a generic large-building tile for the gym. NPC cluster = 2-3 generic Pokémon NPC sprites until we know if any of these schoolyard friends should be named.
+**Asset notes:** Reuse `gfx/tilesets/johto.png` for outdoor ground. Three named NPC sprites for Friets, Bram, Tobi (pick distinct-silhouette sprites from `gfx/sprites/` — distinguishable at a glance matters since these three recur).
 
 **Draft dialogue:**
 
 ```
-[Outside the gym. Sun out.
-A few classmates are huddled,
-talking loud. Tobi-sprite
-among them.]
+[Outside the gym at College
+Rolduc. Sun out.]
 
-CLASSMATE: Bro have you heard?
+[Friets, Bram, and Tobi
+huddled, talking loud.]
+
+[Michel-sprite walks over.]
+
+FRIETS:    bro you HAVE to
+           try this game
+
+BRAM:      we just hit 60
            [▼]
-           There is this NEW
-           GAME.
+           the elite zones are
+           insane
+
+TOBI:      michel.
            [▼]
-           My cousin's been on
-           it for 3 weeks.
+           come play WORLD OF
+           WARCRAFT.
+
+MICHEL:    can't
            [▼]
-           Says he hasn't slept.
+           I'm grinding on
+           STAR WARS GALAXIES
 
-TOBI:      ...what's it called?
+FRIETS:    bro
 
-CLASSMATE: WORLD OF WARCRAFT.
+BRAM:      bro
 
-[A beat. Tobi's whole face
-changes. Michel-sprite walks
-into the conversation.]
-
-TOBI:      ...we have to play
-           this.
+TOBI:      bro
            [▼]
-           Michel.
-           [▼]
-           Michel are you in.
+           we'll boost you
+           through DEADMINES
 
-MICHEL:    Bro I just stopped
-           playing COUNTER-
-           STRIKE.
-           [▼]
-           I can't fail another
-           year.
+MICHEL:    ...what is deadmines
 
-TOBI:      Spasti.
-           One dungeon.
-
-MICHEL:    ...
+TOBI:      it's a dungeon.
            [▼]
-           ok one dungeon.
+           one dungeon.
+
+MICHEL:    ...ok one dungeon.
 
 [NARRATOR: He would play this
 game for the next 20 years.]
@@ -157,9 +145,11 @@ game for the next 20 years.]
 ```
 
 **Notes:**
-- "Spasti." second use — first time was Tobi's silent judgment in Scene 1. Now it's how he talks Michel into things. The word evolves.
-- "One dungeon" is the lie that started two decades. Reads like a Pokémon NPC saying "Just one battle!" except the player knows the truth.
-- The narrator's tag-line at the end is what plants the BWL scene later. Foreshadow.
+- "bro / bro / bro" — teen-friend peer pressure in pure form. Three NPCs, one syllable each, then Tobi closes the deal. Reads instantly.
+- "Spasti." is *absent* this scene. Tobi doesn't need it — peer pressure is enough. Saves the word for the next two scenes where it lands harder.
+- STAR WARS GALAXIES gets the proper-noun caps — Michel had a real game he loved, and the joke is that none of these jokers care.
+- "DEADMINES" plants the *Michel-as-noob* setup that pays off in Scene 6 ("just gonna look around"). He was a noob from day one. Tobi was always there boosting.
+- "One dungeon" is still the punchline-lie.
 
 ---
 
@@ -185,57 +175,37 @@ game for the next 20 years.]
 [BRAM'S LIVING ROOM.
 Evening. Lamp on.]
 [Bram on the couch. Benny on
-the floor with a controller.
-Tobi in the armchair.]
-[Michel-sprite walks in.
-There's a guitar against
-the wall.]
+the floor. Tobi in the chair.
+Guitar against the wall.]
+
+[Michel-sprite walks in.]
 
 BRAM:     yo
 
 BENNY:    sup
 
-TOBI:     ...
-          [▼]
-          play something
+TOBI:     play something
 
 [Michel-sprite walks to the
-guitar. Picks it up.
-The room goes quiet.]
+guitar. Picks it up.]
 
-[Music: TRAINS (intro motif).
-Wave channel, sparse. Square
-channels silent. Six bars.]
-
-[No one moves. No one talks.
-Even Benny puts the controller
-down.]
+[Music: TRAINS intro motif.
+Wave channel, sparse. Six
+bars.]
 
 [The motif resolves.]
 
-[A long beat.]
-
 TOBI:     ...
-
-[Another beat.]
-
-TOBI:     spasti.
-
-[Tobi's voice is different
-here. Quieter. The word means
-something else now. He says
-it the way you say
-"I love you" to a brother
-when you can't say the other
-thing yet.]
+          [▼]
+          spasti.
 
 [NARRATOR: ▼ Walk on.]
 ```
 
 **Notes:**
-- "Spasti" third time. Each use has reframed the word: judgment → mock-affection → real affection. In this scene it carries the meaning Tobi will never say out loud.
-- Bram and Benny don't need lines beyond hello. Their presence is the point — Tobi is surrounded by friends, and *this* is the friend who makes the room stop.
-- The music note is the single hardest engineering ask in the whole game. A wave-channel arpeggio that suggests *Trains* without literally reproducing it. We don't need to nail the song — we need to nail the *feeling*. If we can't, fall back to silence + a soft pulse and a single guitar-string SFX.
+- Trimmed of all the over-explaining. The music does the work; "..." then "spasti." is enough.
+- "Spasti" third time. Each use has reframed the word: judgment → peer pressure (absent in Scene 2, evolved) → quiet affection here. The shift happens in *how* Tobi says it, not in any narrator gloss.
+- Music: wave-channel arpeggio suggesting the *Trains* intro. Doesn't have to nail the song — has to nail the *feeling*. If we can't, fall back to silence + a single guitar-string SFX.
 
 ---
 
