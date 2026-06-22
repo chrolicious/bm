@@ -438,19 +438,39 @@ MICHEL:   yeah.
 
 [They sit there.]
 
+[A long beat.]
+
+NARRATOR: that night moved
+          me.
+          [▼]
+          your strength —
+          to have held this
+          in all day.
+          [▼]
+          but it also moved
+          me closer to you.
+          [▼]
+          you were my
+          brother now.
+          [▼]
+          and i'd move
+          heaven and earth
+          to protect you.
+
 [NARRATOR: ▼ Walk on.]
 ```
 
 **Notes on this draft:**
 - **Cold-open structure:** scene begins inside the bar, player follows Tobi out, camera pans up the stairs to reveal him sitting alone, player walks Michel up to him. The player physically performs the *noticing* and the *following*. No exposition needed — by the time they sit down together, the player has already committed to being there with Tobi.
-- **No interrogation.** Tobi tells his truth once, in one breath. Michel doesn't probe. No "this morning?" / "why didn't you say." The realization that he carried it alone all day lives in Michel's head — and lands properly in **Scene 7 (the ask)** where Michel finally names what it meant. Holding the insight for the ask is what makes the ask earned.
+- **No interrogation.** Tobi tells his truth once, in one breath. Michel doesn't probe. No "this morning?" / "why didn't you say."
 - **Catcallers cut.** The scene is too sacred to be intruded on. The brotherhood reads from the hug + the silence + the eventual "thanks / yeah." No NPCs needed.
 - The `- hug -` notification + tiny `♥` is intentionally Pokémon-shaped. It lets the moment have a *glyph* without being saccharine. (Alternative: no overlay at all, just sprites adjacent. Will test both in-engine.)
-- "thanks." / "yeah." is the whole ending. No reflection. No "I love you man." Pokémon dialogue restraint applied to a moment that does not need words.
+- "thanks." / "yeah." is the spoken bookend. Then long silence. Then the narrator lands.
+- **Narrator block at the end** — user's own words. Michel's thought arriving in the quiet after the words are done. This is the one moment in the scene the inside-voice surfaces, and it's why the rest of the scene can stay so spare.
 - This scene runs no music. Just the muffled bass implied in the captions. Returns to music in Scene 6.
 
-**Scene 7 carries:**
-- The "you didn't tell us all day" realization — *that* line is moved into the ask as Michel's named understanding of who Tobi is. Becomes part of why Michel is asking him to be best man.
+**Scene 7 implications:**
+- The "all day" insight is *named here*, in Scene 5, in the user's own words. Scene 7 must NOT re-explain it. Scene 7 acts on it instead: Michel asks because Tobi is the person revealed in this scene, and has been ever since. No re-narrating the same moment.
 
 ---
 
@@ -629,7 +649,7 @@ by the end. You can tell.]
 
 ## Scene 7 — Present day / The Ask
 
-**Inheriting from Scene 5:** The "you didn't tell us all day" insight lives here, not in Aachen. Michel finally says aloud what he understood that night, and that becomes the answer to *why* he's asking Tobi to be best man.
+**Inheriting from Scene 5:** The brother-truth was already named in Aachen ("you were my brother now. and i'd move heaven and earth to protect you."). Scene 7 must NOT re-narrate Aachen — that would deflate it. Scene 7 *acts on* what was named: 20 years later, Michel asks Tobi to be best man because of who Tobi is, because of all the nights since that one. The ask is the call to action that the narrator line set up.
 
 **Setting:** TBD. Could be:
   (a) Michel's apartment (player wakes up, "20 years later…")
