@@ -135,12 +135,6 @@ TOBI:      bro
 
 MICHEL:    ...what is deadmines
 
-TOBI:      it's a dungeon.
-           [▼]
-           one dungeon.
-
-MICHEL:    ...ok one dungeon.
-
 [NARRATOR: He would play this
 game for the next 20 years.]
 [NARRATOR: ▼ Walk on.]
@@ -151,7 +145,7 @@ game for the next 20 years.]
 - "Spasti." is *absent* this scene. Tobi doesn't need it — peer pressure is enough. Saves the word for the next two scenes where it lands harder.
 - STAR WARS GALAXIES gets the proper-noun caps — Michel had a real game he loved, and the joke is that none of these jokers care.
 - "DEADMINES" plants the *Michel-as-noob* setup that pays off in Scene 6 ("just gonna look around"). He was a noob from day one. Tobi was always there boosting.
-- "One dungeon" is still the punchline-lie.
+- Scene ends mid-conversation on Michel's confused "...what is deadmines" — the narrator's "20 years" line carries the answer the scene doesn't bother to give. Sharper exit than spelling out the commitment.
 
 ---
 
