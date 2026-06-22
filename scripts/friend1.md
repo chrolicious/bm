@@ -6,6 +6,8 @@ Status: raw extraction, scene order drafted, dialogue not yet written.
 
 A bootleg Pokémon-style GBC "game" Michel is giving Tobi to ask him to be his best man. Player is Michel-as-trainer, walks through a small overworld where each "room" is a memory with Tobi. Ends with the ask.
 
+**Setting:** Kerkrade, Netherlands. School = **College Rolduc**, HAVO track, klas 3 (third year). Michel commutes back to Meerbusch (Germany) on weekends to see his girlfriend **Constanze / "Conzi."** The Netherlands → Germany border-crossing weekend ritual is the unspoken context for the dress-shirt mystery.
+
 ## Characters
 
 - **Michel** (player sprite) — proxy = `gfx/player/chris.png` (Crystal protag, recolor TBD)
@@ -15,7 +17,7 @@ A bootleg Pokémon-style GBC "game" Michel is giving Tobi to ask him to be his b
 
 - Mixed. Comedy bits land hard, emotional bits land harder. Crystal-era Pokémon dialogue cadence (short lines, "...", `\n` line breaks, occasional ALL CAPS for emphasis).
 - Speaker tag and in-dialogue name both: **TOBI** / **Tobi**.
-- They're German — keep it English, but a stray "Alter" or German place name lands as authentic flavor, not affectation.
+- It's German-speaking teen banter on the Dutch border. Mostly English, but the in-jokes drop into German: **"spasti"** is the recurring affectionate insult between them. Use it as the punchline word — not a constant tic.
 
 ## Dialogue format
 
@@ -35,9 +37,11 @@ TOBI: line one (≤18 chars)
 Pokémon "town" structure: 5 rooms / memories, arranged as a short overworld walk. The walk itself is the spine — each door is a year of their lives. Pacing: 3 short scenes → 1 silent beat → 1 devastating scene → the ask. Comedy carries the player through the early stuff so the Aachen scene lands.
 
 ```
-[TITLE]   →   [CLASSROOM]   →   [SCHOOLYARD]   →   [LIVING ROOM]   →   [SPAIN BAR]   →   [AACHEN STAIRS]   →   [PRESENT DAY / ASK]
-                cold open      bonding montage     "trains" beat        comedy beat          climax              the question
+[TITLE] → [CLASSROOM] → [SCHOOLYARD] → [LIVING ROOM] → [SPAIN BAR] → [AACHEN STAIRS] → [BWL RAID] → [ASK]
+           cold open    WoW first hint   "trains" beat   comedy beat   climax              comedy↺      the question
 ```
+
+Seven scenes. The BWL raid sits *after* Aachen on purpose: life kept going. Tobi's mom is gone, the friendship deepened, and now you're two guys laughing on Ventrilo because Michel just wiped a 40-man raid. Heartbreak → recovery → resolution.
 
 ---
 
@@ -50,7 +54,8 @@ Pokémon "town" structure: 5 rooms / memories, arranged as a short overworld wal
 **Draft dialogue (first pass, GBC-text-box sized):**
 
 ```
-[FADE IN. Year 11. Friday morning.]
+[FADE IN. COLLEGE ROLDUC.
+ HAVO 3. Friday morning.]
 [The player wakes up in his
 seat, front row.]
 
@@ -66,7 +71,6 @@ NARRATOR: Friday.
 Tobi-sprite visible in back row.]
 
 TOBI:     ...
-          [▼]
           Who IS this guy?
           [▼]
           Dress shirt.
@@ -75,19 +79,21 @@ TOBI:     ...
           Front row.
           Every. Damn. Day.
           [▼]
-          ...alter, what?
+          Spasti.
 
 [Michel doesn't notice. He's
-thinking about Meerbusch.
-Tobi doesn't know that yet.]
+already thinking about the
+drive to Meerbusch tonight.
+Tobi doesn't know about that
+yet.]
 
 NARRATOR: ▼ Walk to the door.
 ```
 
 **Notes on this draft:**
-- Two POVs in one scene: the player as Michel, but Tobi narrates the *judgement*. Sets up that this is a memory game with two perspectives. The reveal later — "I was driving to my girlfriend's" — lands because we plant the dress shirt here.
-- "alter, what?" is the one German word — earns its place as the punchline.
-- "COUNTER-STRIKE" in caps is the Pokémon convention for proper nouns / items. Reads native to the genre.
+- Two POVs in one scene: the player as Michel, but Tobi narrates the *judgement*. Sets up that this is a memory game with two perspectives. The Meerbusch reveal pays off in Scene 7 (the ask) — "Conzi. That was Conzi."
+- "Spasti." — one word, last line, no exclamation point. The affectionate dismissal lands harder dry.
+- "COUNTER-STRIKE" and "COLLEGE ROLDUC" in caps follow the Pokémon convention for proper nouns / items. Reads native to the genre.
 - Scene ends with player having to physically walk Michel-sprite to the door. The walk is the transition to Scene 2.
 
 ---
@@ -175,7 +181,145 @@ This is the emotional load-bearing scene of the whole game. Every other scene ex
 
 ---
 
-## Scene 6 — Present day / The Ask
+## Scene 6 — Blackwing Lair, first raid (comedy beat after the climax)
+
+**Setting:** The Razorgore egg room — a dim cave chamber with dragon eggs in the center, doorways on either side, mobs about to spawn. Tile-art note: we'll fake the BWL aesthetic with a cave palette (use `gfx/tilesets/cave.png` or `gfx/tilesets/dark_cave.png` from pokecrystal, palette-swap to red/black) and a couple of dragon-egg sprites as scenery. Player-Michel sprite, four NPC-raider sprites lined up behind him as a "raid party," a horde of orc-trash sprites just past the doorway.
+
+**Beats:**
+- Michel's first raid with Tobi's guild. He has NO idea how anything works.
+- The raid is pre-pull, everyone is positioning.
+- Michel-sprite drifts forward to look at the eggs.
+- Body-pulls all the trash in the egg room. Mobs swarm.
+- 40-man wipe.
+- Kicked from the raid team. Demoted to the worse team.
+- Tobi is dying laughing on Ventrilo / TeamSpeak.
+
+**Mechanically:** This is a tiny anti-puzzle the player *can't win*. On scene enter, a WoW-style zone banner reads **"Blackwing Lair"** centered on the screen. The raid lead's first chat line tells the player **"DEFINITELY DON'T WALK LEFT OR RIGHT."** That instruction *is* the trap — a Pokémon player given a "do not" will absolutely do it. The moment Michel-sprite walks one tile left or right, trash spawns from that side's doorway. The wipe is scripted; the gag is the explicit anti-instruction.
+
+**Draft dialogue (first pass):**
+
+```
+[CAVE INTERIOR. Red palette.
+ Dragon eggs in the center.]
+[Michel-sprite at the front
+of a line of NPC raiders.
+Tobi-sprite somewhere in
+the back, on heals.]
+
+[A banner slides in from the
+top of the screen and rests
+mid-screen, WoW zone-change
+style:]
+
+           ╔══════════════╗
+           ║ BLACKWING    ║
+           ║    LAIR      ║
+           ╚══════════════╝
+
+[Banner fades after 2 seconds.]
+
+VENT CHAT:    <Raidlead> ok we
+              pull in 30 sec
+              [▼]
+              <Raidlead>
+              EVERYONE
+              [▼]
+              <Raidlead>
+              DEFINITELY DO NOT
+              WALK LEFT OR RIGHT
+              [▼]
+              <Raidlead> stay on
+              your mark
+              [▼]
+              <Tobi> michel u
+              hear that
+              [▼]
+              <Michel> ya all good
+              [▼]
+              <Michel> just gonna
+              look around
+
+[The player has control of
+Michel-sprite. North wall =
+eggs. East and west = dark
+tunnel doorways. Forward
+(north) is fine. Left or
+right... is not.]
+
+[Player presses ← or →.]
+
+           ! ! !
+
+[Orc trash floods in from
+the doorway Michel walked
+toward.]
+
+VENT CHAT:    <Raidlead> WHO
+              [▼]
+              <Raidlead> WHO
+              PULLED
+              [▼]
+              <Tobi> oh my god
+              [▼]
+              <Tobi> oh my GOD
+              [▼]
+              <Raidlead> WIPE IT
+              WIPE IT WIPE IT
+
+[Screen flashes red.
+"YOU HAVE DIED" text.
+Then the rest of the raid.
+40-man wipe.]
+
+           * WIPE *
+
+[Black screen.]
+
+VENT CHAT:    <Raidlead> ...
+              [▼]
+              <Raidlead> who is
+              this guy
+              [▼]
+              <Tobi> uhhhh
+              [▼]
+              <Tobi> my friend
+              [▼]
+              <Raidlead> hes off
+              the team
+              [▼]
+              <Raidlead> demoted.
+              casual rank.
+              [▼]
+              <Tobi> michel
+              [▼]
+              <Tobi> ...
+              [▼]
+              <Tobi> spasti.
+              [▼]
+              <Michel> yeah ok
+              fair
+
+[Scene fades.
+Both of them are laughing
+by the end. You can tell.]
+```
+
+**Notes on this draft:**
+- Vent chat formatted as a chat log inside the dialogue box — `<Name> text` cadence is instantly recognizable to anyone who voice-chatted in 2005.
+- The callback to "spasti" from Scene 1 lands here. The first time Tobi said it, he didn't know Michel. The second time, he says it because Michel is family.
+- The raidlead's "who is this guy" mirrors Tobi's Scene 1 line. Different room, same question, very different answer.
+- Pokémon-style **`! ! !`** alarm (the same one used when a trainer spots you) for the spawn trigger — it's a perfect canonical glyph for "oh no."
+- No music during the wipe. Music returns when the screen fades.
+
+**Need from user:**
+- Guild name? (Pure flavor, but if you remember it, gold.)
+- Year? (BWL was current content roughly 2005–2006 — sets your age.)
+- The raid lead — was he a memorable dick, or just a generic Raidlead character? Could get a name.
+- Did Michel actually get demoted, or was that a joke that stuck? (Either works, but affects the line.)
+
+---
+
+## Scene 7 — Present day / The Ask
 
 **Setting:** TBD. Could be:
   (a) Michel's apartment (player wakes up, "20 years later…")
