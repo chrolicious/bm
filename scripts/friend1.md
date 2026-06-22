@@ -136,7 +136,9 @@ TOBI:      bro
 MICHEL:    ...what is deadmines
 
 [NARRATOR: He would play this
-game for the next 20 years.]
+game for 20 years...
+[▼]
+and counting.]
 [NARRATOR: ▼ Walk on.]
 ```
 
