@@ -1,6 +1,6 @@
 # Friend 1 — Tobi (Tobias)
 
-Status: raw extraction, scene order drafted, dialogue not yet written.
+Status: all 7 scenes drafted with dialogue. Awaiting engine integration + asset finalization. WoW handle: **Ozora**.
 
 ## Premise
 
@@ -10,8 +10,8 @@ A bootleg Pokémon-style GBC "game" Michel is giving Tobi to ask him to be his b
 
 ## Characters
 
-- **Michel** (player sprite) — proxy = `gfx/player/chris.png` (Crystal protag, recolor TBD)
-- **Tobi** — needs custom sprite (Gen-2 NPC style; tall-ish, hair color TBD). Possible NPC sprite reuse for prototype: `gfx/sprites/biker.png` or `gfx/sprites/cal.png` until custom art lands.
+- **Michel** (player sprite, WoW handle Xoh) — proxy = `gfx/player/chris.png` (Crystal protag, recolor TBD)
+- **Tobi** (WoW handle Ozora) — needs custom sprite (Gen-2 NPC style; tall-ish, hair color TBD). Possible NPC sprite reuse for prototype: `gfx/sprites/biker.png` or `gfx/sprites/cal.png` until custom art lands.
 
 ## Voice / tone
 
@@ -34,7 +34,7 @@ TOBI: line one (≤18 chars)
 
 ## Arc
 
-Pokémon "town" structure: 5 rooms / memories, arranged as a short overworld walk. The walk itself is the spine — each door is a year of their lives. Pacing: 3 short scenes → 1 silent beat → 1 devastating scene → the ask. Comedy carries the player through the early stuff so the Aachen scene lands.
+Seven scenes, played as discrete tilemaps with `walk on →` transitions between them (no overworld map; the walk-on prompt is the spine). Pacing: light comedy through Sc 1–4 → quiet beat at Sc 3 → comedy peak at Sc 4 → CLIMAX at Sc 5 → comedy recovery at Sc 6 → resolution + ask at Sc 7. Comedy carries the player through the early stuff so Aachen lands.
 
 ```
 [TITLE] → [CLASSROOM] → [SCHOOLYARD] → [LIVING ROOM] → [SPAIN BAR] → [AACHEN STAIRS] → [BWL RAID] → [ASK]
@@ -155,8 +155,6 @@ game for the next 20 years.]
 
 ---
 
----
-
 ## Scene 3 — BramT's living room ("Trains" / Porcupine Tree)
 
 **Setting:** Living room interior, evening. Four sprites scattered around: **BramT, Benny (BramT's brother), Tobi, Michel.** A guitar leaning against the couch.
@@ -206,10 +204,8 @@ TOBI:     ...
 
 **Notes:**
 - Trimmed of all the over-explaining. The music does the work; "..." then "spasti." is enough.
-- "Spasti" third time. Each use has reframed the word: judgment → peer pressure (absent in Scene 2, evolved) → quiet affection here. The shift happens in *how* Tobi says it, not in any narrator gloss.
+- This use of "spasti" is the *quiet affection* beat in the word's full arc (see Scene 7 notes for the complete arc). The shift happens in *how* Tobi says it, not in any narrator gloss.
 - Music: wave-channel arpeggio suggesting the *Trains* intro. Doesn't have to nail the song — has to nail the *feeling*. If we can't, fall back to silence + a single guitar-string SFX.
-
----
 
 ---
 
@@ -327,12 +323,10 @@ TOBI:     yeah but you LET me
 ```
 
 **Notes:**
-- "Spasti" fourth time, now used by both of them and at each other. The word is fully theirs.
+- "Spasti" used twice in this scene (once in banter, once after the puke) — now flowing between them, both directions. The word is fully theirs.
 - "TOBIAS" (his full name) from his dad off-screen — that universal *parent uses your full name when furious* moment.
 - The full bilingual touch ("hola guapo", "¿estás seguro?") in the waitress lines is enough to read as Spain without translating.
 - The "you LET me" closer is the kind of victim-blaming joke teenage friends actually make. Reads true.
-
----
 
 ---
 
@@ -539,6 +533,7 @@ MICHEL:   yeah.
 **Draft dialogue (first pass):**
 
 ```
+[Years later.]
 [CAVE INTERIOR. Red palette.
  Dragon eggs in the center.]
 [Michel-sprite at the front
@@ -681,8 +676,9 @@ by the end. You can tell.]
 
 **Notes on this draft:**
 - Vent chat formatted as a chat log inside the dialogue box — `<Name> text` cadence is instantly recognizable to anyone who voice-chatted in 2005.
-- The callback to "spasti" from Scene 1 lands here. The first time Tobi said it, he didn't know Michel. The second time, he says it because Michel is family.
-- The raidlead's "who is this guy" mirrors Tobi's Scene 1 line. Different room, same question, very different answer.
+- The "[Years later.]" caption at the top is the only time-skip marker the player needs — the BLACKWING LAIR banner does the rest of the re-orientation work.
+- "<Ozora> spasti." in the post-wipe chat is the word fully recovered — proof the friendship survived Aachen. Light, warm, the way Scene 3 was, but now in voice chat.
+- Aronian's "who is this guy" deliberately mirrors Tobi's Scene 1 line. Different room, same question, very different answer this time.
 - Pokémon-style **`! ! !`** alarm (the same one used when a trainer spots you) for the spawn trigger — it's a perfect canonical glyph for "oh no."
 - No music during the wipe. Music returns when the screen fades.
 
@@ -794,52 +790,39 @@ TOBI:     ...
 (The title-card sigil = the recipient's WoW handle. Tobi's ROM ends on "Ozora." BramS's ROM ends on "Freak0r." Each man's own name as the closing chord.)
 
 **Notes on this draft:**
-- **Opens with the dress-shirt callback.** 20 years of waiting for an answer, paid off in three lines. Tobi asks before Michel can even begin. The "SPASTI." in all caps is the comedic eruption — its loudest, lightest use yet. Word's arc: silent judgment → peer pressure (absent) → quiet affection → shared shorthand → outward shield → comedic eruption → quiet "of course." Seven uses total, each one different.
+- **Opens with the dress-shirt callback.** 20 years of waiting for an answer, paid off in three lines. Tobi asks before Michel can even begin. The "SPASTI." in all caps is the comedic eruption — its loudest, lightest use yet. Word's arc across the whole ROM: silent judgment → peer pressure (absent) → quiet affection → shared shorthand → outward shield → comedic eruption → quiet "of course." Each appearance lands differently.
 - **"this whole game was a question."** One sentence collapses the entire ROM. Doesn't recap a single scene; just names what the player has been doing for the last 8 minutes.
 - **"ask it."** Tobi giving Michel permission. The answer is already given before the question is asked — and both of them know it.
 - **[Yes] / [Heil Yes].** Two yeses. The German pun on "Hell yes" lands in their shared vocabulary. Either choice leads to the same response — there is no "no" branch, because there never was.
 - **BEST MAN BADGE.** Pure Pokémon item-get nostalgia. The fanfare, the floating item, the all-caps received-item line. Period-correct. Could even reuse the actual Crystal `♪ ITEM GET ♪` jingle if we can rip the macro.
 - **Tobi's closing "spasti. of course."** The word's final use. Quiet again, like Scene 3. Means "yes, you idiot, of course it's yes."
-- **Title card "BESTMEN for Tobi"** — personalizes the cartridge. The Bram ROM will end with the same card, "for Bram." Each one is HIS game.
+- **Title card "BESTMEN / Ozora"** — recipient's WoW handle as sigil. BramS's ROM will end the same way on "Freak0r." Each cartridge is HIS game.
 
 **Open / optional:**
-- Should Bram-Friend-2 speak a line at any point? Could call out "yo michel" as Michel walks in — pure scenery. Or stay silent at the grill so all the attention is on Tobi. My instinct: silent at the grill. The scene is between Michel and Tobi; Bram has his own ROM coming.
-- Post-credits? Could roll a short credit scroll naming everyone — Tobi, Bram, Bram (lol), Benny, Friets, Aronian, Gerrit, Tita, Divinity, Aerendil, Conzi — kind of a "the cast of your life" beat. Or end clean on the title card. Up to you.
-
-**Beats:**
-- The "you've come this far" moment.
-- The actual question.
-- A choice prompt: `YES` / `NO`. Both branches go to "YES" — but the NO branch should land a joke ("Press A to reconsider.") then accept YES.
-
-**Need from user:**
-- The actual ask line, in your voice. Even rough.
-- Wedding date / "save the date" — does the game tell him a date?
-- Anything you want to give him in-game as a "key item" — like a literal Pokémon-style item received notification: "TOBI received the BEST MAN BADGE!"
+- Should BramS speak a line at any point? Could call out "yo michel" as Michel walks in — pure scenery. Or stay silent at the grill so all the attention is on Tobi. My instinct: silent at the grill. The scene is between Michel and Tobi; BramS has his own ROM coming.
+- Post-credits? Could roll a short credit scroll naming everyone — Tobi, BramS, BramT, Benny, Friets, Aronian, Gerrit, Tita, Divinity, Aerendil, Conzi — kind of a "the cast of your life" beat. Or end clean on the title card. Up to you.
 
 ---
 
-## Open questions / decisions
+## Status (project-level)
 
-1. **Tobi's nickname** — what do you actually call him?
-2. **Order of comedy scenes** — keep Spain before the gut-punch (comedy → devastation = strongest contrast), or put Spain after Aachen to land on a lighter note? My instinct: comedy first, then climax, then resolution. The current order.
-3. **Should the "Trains" living-room scene have actual chiptune music** of the song, or just silence + an instrument icon? Silence might be more powerful given the constraint.
-4. **Length budget** — total game length: 5–10 min walkthrough? Each scene gets ~30–60 seconds of dialogue.
-5. **The girlfriend in Meerbusch** — she's set dressing for the dress-shirt joke. Stay anonymous or named?
-6. **Other beats not yet placed:**
-   - WoW sessions / "hanging out every day"
-   - Starting the Japanese bachelor together (Tobi finished, Michel didn't)
-   - "Big highs and lows" mentioned generally — is there one more specific high or low we should place?
-   - 20 years of friendship leading to now — bridged in scene 6 or earned through a montage
+Drafted with dialogue: Sc 1, 2, 3, 4, 5, 6, 7.
 
-## Asset map (so far)
+**Locked decisions:** nickname (Tobi), spasti as recurring thread, BramT/BramS disambiguation, WoW handles (Ozora/Xoh/Ayaro/Friets/Freak0r), Bound by Blood guild name, real demotion in BWL, Aachen narrator coda (user's own words), catcallers after the coda (Halt's Maul du Spasti), Heil Yes option, BBQ as present-day setting, title-card sigil = handle.
 
-| Scene | Tileset | Custom art needed |
+**Asset summary** (per-scene asset notes live in each scene's body; this is the rollup):
+| Scene | Reuse from `gfx/pokecrystal-src/` | Custom needed |
 |---|---|---|
-| Classroom | Need school-interior tileset; closest in pret: `interior`, `kanto_pokecenter`-style desks | Tobi NPC sprite, school-uniform Michel |
-| Schoolyard | `johto` outdoor tileset + custom gym building? | Friend-group NPC cluster |
-| Living room | `house1.png` / `house2.png` interiors | Guitar item icon |
-| Spain bar | Custom — closest pret match: any pub/cafe interior in `gfx/tilesets/` | 2× waitress NPC, drunk-Tobi sprite variant |
-| Aachen stairs | Custom — could repurpose any night-exterior tile | Hug overlay or paired-sprite frame |
-| Present / Ask | Custom — possibly black BG + portrait | Best Man Badge item sprite |
+| 1 Classroom | `gfx/tilesets/elms_lab.png` palette swap | Tobi NPC + dress-shirt Michel palette |
+| 2 Schoolyard | `gfx/tilesets/johto.png` | Friets, BramT NPC sprites (or reuse Crystal NPCs) |
+| 3 BramT living room | `gfx/tilesets/house1.png` | BramT, Benny NPC sprites + 8×8 guitar prop |
+| 4 La Cubanita | recolor Crystal pub/cafe tile | waitress NPC palette, drunk-Tobi sprite variant, Tobi's-dad silhouette |
+| 5 Aachen | Crystal nightclub-adjacent tile + night street tile | bouncer silhouette, hug-pair frame or ♥ overlay |
+| 6 BWL | `gfx/tilesets/cave.png` red palette | dragon-egg props, zone-banner overlay, `! ! !` glyph (Crystal stock) |
+| 7 BBQ | `johto.png` sunny palette | BramS NPC, grill 8×8 prop, BEST MAN BADGE item sprite, title-card overlay |
 
-Most of this can reuse pret tilesets with palette swaps. Custom art = mostly Tobi's NPC sprite + the "best man badge."
+**Open / non-blocking:**
+- Year for Scene 6 (BWL was current ~2005–2006; want it accurate?)
+- Personality reads for guildmates in BWL chat (Friets = LMAO etc.) — confirm or reassign
+- BramS line in Scene 7 or silent at grill (my instinct: silent)
+- Post-credits "cast of your life" scroll or clean title-card exit
