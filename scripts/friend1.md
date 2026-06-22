@@ -229,7 +229,7 @@ TOBI:     ...
 - One night Tobi gets *catastrophically* drunk and pukes all over his bed.
 - His parents come back from their trip out and find the aftermath. Tobi's dad: not amused.
 
-**Mechanically:** The scene is a tiny loop. Player walks Michel-sprite up to the counter. A waitress prompt: `ANOTHER ROUND?` with two options that **degrade in legibility each round** — the options text itself is the slur meter. Round 1 = `YES / NO`. Round 2 = `Yeah / Nope`. Round 3 = `Yesh... / YURP` (both options now drunk-gibberish; both pick YES). Tobi's wobble-frame intensifies each round. After round 3 the screen fades with a BURP, cut to the bedroom the next morning.
+**Mechanically:** The scene is a tiny loop. Player walks Michel-sprite up to the counter. A waitress prompt: `ANOTHER ROUND?` with two options that **degrade in legibility each round** — the options text itself is the slur meter. Round 1 = `YES / NO`. Round 2 = `Yeah / Nope`. Round 3 = `Mrrghhh / Hnnffff` (pure mouth-sound gibberish; neither is a word; both pick YES). Tobi's wobble-frame intensifies each round. After round 3 the screen fades with a BURP, cut to the bedroom the next morning.
 
 **Draft dialogue:**
 
@@ -294,8 +294,8 @@ WAITRESS: ...
           [▼]
           ANOTHER ROUND?
 
-> Yesh...
-  YURP
+> Mrrghhh
+  Hnnffff
 
 [Either choice picks YES —
 neither one is really a
