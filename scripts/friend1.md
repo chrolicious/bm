@@ -101,6 +101,13 @@ TOBI:     ugh
 [Outside the gym at College
 Rolduc. Sun out.]
 
+[Music: WOW TAVERN THEME,
+GBC chiptune recreation.
+Pulse 1 main melody, pulse 2
+counter, wave channel for
+warm bass. 3/4 time. Loops
+through the whole scene.]
+
 [Friets, BramT, and Tobi
 huddled, talking loud.]
 
@@ -148,6 +155,7 @@ and counting.]
 - STAR WARS GALAXIES gets the proper-noun caps — Michel had a real game he loved, and the joke is that none of these jokers care.
 - "DEADMINES" plants the *Michel-as-noob* setup that pays off in Scene 6 ("just gonna look around"). He was a noob from day one. Tobi was always there boosting.
 - Scene ends mid-conversation on Michel's confused "...what is deadmines" — the narrator's "20 years" line carries the answer the scene doesn't bother to give. Sharper exit than spelling out the commitment.
+- **Music: WoW Classic Tavern theme** as the BGM through the whole scene. Diegetic to the conversation, not the location — the music is the WoW excitement bleeding into the schoolyard. Any guildie of that era will recognize the melody within four bars. Same engineering channel-layout discipline as the Trains motif (pulse 1/2 + wave); these two tracks together prove the audio toolchain works for both folk-acoustic and chiptune-arrangement styles.
 
 ---
 
@@ -176,7 +184,7 @@ Guitar against the wall.]
 
 [Michel-sprite walks in.]
 
-BRAMT:    yo
+BRAMT:    Yo Mich
 
 BENNY:    sup
 
@@ -185,9 +193,12 @@ TOBI:     play something
 [Michel-sprite walks to the
 guitar. Picks it up.]
 
-[Music: TRAINS intro motif.
-Wave channel, sparse. Six
-bars.]
+[Music: TRAINS main motif,
+GBC chiptune recreation.
+Wave channel carries the
+arpeggio; pulse 1 a quiet
+bass note underneath.
+Six to eight bars.]
 
 [The motif resolves.]
 
@@ -201,7 +212,7 @@ TOBI:     ...
 **Notes:**
 - Trimmed of all the over-explaining. The music does the work; "..." then "spasti." is enough.
 - This use of "spasti" is the *quiet affection* beat in the word's full arc (see Scene 7 notes for the complete arc). The shift happens in *how* Tobi says it, not in any narrator gloss.
-- Music: wave-channel arpeggio suggesting the *Trains* intro. Doesn't have to nail the song — has to nail the *feeling*. If we can't, fall back to silence + a single guitar-string SFX.
+- **Music (locked):** GBC chiptune recreation of the *Trains* main motif. Wave channel for the arpeggio (best-fakes plucked-string tone on GBC), pulse 1 for a sparse bass underneath. This is the *music centerpiece of the whole ROM* — the one motif we have to nail. **Reprises in Scene 7** under the ask: the same melody that meant "I love you, you idiot" here means "of course it's yes" there. The music is the bookend. If recreation proves impossible in the time budget, fall back order: (a) different recognizable Porcupine Tree phrase, (b) silence + single guitar-string SFX. (a) and (b) are emergency exits only.
 
 ---
 
@@ -712,8 +723,15 @@ NPC sprites scattered.]
 [Tobi-sprite at a picnic
 table.]
 
-[Michel-sprite walks up.
-Sits down opposite.]
+[Michel-sprite walks in.]
+
+BRAMS:    Yo Mich
+
+MICHEL:   yo
+
+[Michel-sprite walks to the
+picnic table. Sits down
+opposite Tobi.]
 
 MICHEL:   tobi.
 
@@ -748,6 +766,12 @@ MICHEL:   tobi.
           this whole game
           was a question.
 
+[Music: TRAINS main motif
+returns. Quiet. Same wave
+channel as Scene 3. Carries
+through the rest of the
+scene.]
+
 TOBI:     ...
           [▼]
           ask it.
@@ -762,7 +786,9 @@ MICHEL:   will you be my
 same response.]
 
        *POOF*
-[♪ ITEM GET ♪]
+[♪ ITEM GET ♪ — short
+fanfare on pulse channels;
+TRAINS motif resumes after.]
 TOBI got
 BEST MAN BADGE!
 
@@ -774,7 +800,9 @@ TOBI:     ...
           [▼]
           of course.
 
-[Screen fades to title.]
+[Screen fades to title.
+TRAINS motif resolves on
+the title card.]
 
            ╔══════════════╗
            ║   BESTMEN    ║
@@ -793,9 +821,9 @@ TOBI:     ...
 - **BEST MAN BADGE.** Pure Pokémon item-get nostalgia. The fanfare, the floating item, the all-caps received-item line. Period-correct. Could even reuse the actual Crystal `♪ ITEM GET ♪` jingle if we can rip the macro.
 - **Tobi's closing "spasti. of course."** The word's final use. Quiet again, like Scene 3. Means "yes, you idiot, of course it's yes."
 - **Title card "BESTMEN / Ozora"** — recipient's WoW handle as sigil. BramS's ROM will end the same way on "Freak0r." Each cartridge is HIS game.
+- **TRAINS motif reprise.** The same melody that played in Scene 3 returns when Michel says "this whole game was a question." Carries through the ask, the item-get fanfare, and resolves on the title card. The music answers what the words can't — and bookends the emotional core of the ROM.
 
 **Open / optional:**
-- Should BramS speak a line at any point? Could call out "yo michel" as Michel walks in — pure scenery. Or stay silent at the grill so all the attention is on Tobi. My instinct: silent at the grill. The scene is between Michel and Tobi; BramS has his own ROM coming.
 - Post-credits? Could roll a short credit scroll naming everyone — Tobi, BramS, BramT, Benny, Friets, Aronian, Gerrit, Tita, Divinity, Aerendil, Conzi — kind of a "the cast of your life" beat. Or end clean on the title card. Up to you.
 
 ---
@@ -805,6 +833,12 @@ TOBI:     ...
 Drafted with dialogue: Sc 1, 2, 3, 4, 5, 6, 7.
 
 **Locked decisions:** nickname (Tobi), spasti as recurring thread, BramT/BramS disambiguation, WoW handles (Ozora/Xoh/Ayaro/Friets/Freak0r), Bound by Blood guild name, real demotion in BWL, Aachen narrator coda (user's own words), catcallers after the coda (Halt's Maul du Spasti), Heil Yes option, BBQ as present-day setting, title-card sigil = handle.
+
+**Music decisions (locked):**
+- **TRAINS main motif** (Porcupine Tree) — GBC chiptune recreation. Debuts in Scene 3, reprises in Scene 7 under the ask, resolves on the title card. Music centerpiece of the ROM.
+- **WOW CLASSIC TAVERN THEME** — GBC chiptune recreation. BGM through Scene 2, diegetic to the WoW conversation. Instant guildie-recognition.
+- BWL scene (6) gets its own short combat-tense track or silence-with-SFX during the wipe; music returns after.
+- Other scenes: silence + ambient SFX (bass thump through Aachen door, BBQ crackle, etc.) unless a track earns its way in.
 
 **Asset summary** (per-scene asset notes live in each scene's body; this is the rollup):
 | Scene | Reuse from `gfx/pokecrystal-src/` | Custom needed |
