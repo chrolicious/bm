@@ -100,59 +100,267 @@ NARRATOR: ▼ Walk to the door.
 
 ## Scene 2 — Schoolyard, in front of the gym (~age 16–17)
 
-**Setting:** Outdoor schoolyard tile, gym building in the background. A small cluster of NPC sprites = friends.
+**Setting:** Outdoor schoolyard tile, College Rolduc gym building in the background. A small cluster of NPC sprites = friends. Michel-sprite walks up.
 
-**Beats:**
-- Friend group talking about "this new game called World of Warcraft."
-- This conversation seeds 20+ years of Michel's life. Still playing today.
-- Light, hyped-teenager energy. Should *read* like the Pokémon Center conversations where NPCs tell you about something cool — "Have you heard about…?"
+**Asset notes:** Reuse `gfx/tilesets/johto.png` for outdoor ground, scale a generic large-building tile for the gym. NPC cluster = 2-3 generic Pokémon NPC sprites until we know if any of these schoolyard friends should be named.
 
-**Possible dialogue stub:**
-> NPC: "Yo! Have you heard?
->  There's this new GAME...
->  WORLD OF WARCRAFT!"
-> TOBI: "...we have to play this."
-> [Michel, age 16, has no idea this conversation will still be running in his head in 2026.]
+**Draft dialogue:**
+
+```
+[Outside the gym. Sun out.
+A few classmates are huddled,
+talking loud. Tobi-sprite
+among them.]
+
+CLASSMATE: Bro have you heard?
+           [▼]
+           There is this NEW
+           GAME.
+           [▼]
+           My cousin's been on
+           it for 3 weeks.
+           [▼]
+           Says he hasn't slept.
+
+TOBI:      ...what's it called?
+
+CLASSMATE: WORLD OF WARCRAFT.
+
+[A beat. Tobi's whole face
+changes. Michel-sprite walks
+into the conversation.]
+
+TOBI:      ...we have to play
+           this.
+           [▼]
+           Michel.
+           [▼]
+           Michel are you in.
+
+MICHEL:    Bro I just stopped
+           playing COUNTER-
+           STRIKE.
+           [▼]
+           I can't fail another
+           year.
+
+TOBI:      Spasti.
+           One dungeon.
+
+MICHEL:    ...
+           [▼]
+           ok one dungeon.
+
+[NARRATOR: He would play this
+game for the next 20 years.]
+[NARRATOR: ▼ Walk on.]
+```
+
+**Notes:**
+- "Spasti." second use — first time was Tobi's silent judgment in Scene 1. Now it's how he talks Michel into things. The word evolves.
+- "One dungeon" is the lie that started two decades. Reads like a Pokémon NPC saying "Just one battle!" except the player knows the truth.
+- The narrator's tag-line at the end is what plants the BWL scene later. Foreshadow.
 
 ---
 
-## Scene 3 — A friend's living room ("Trains" / Porcupine Tree)
+---
 
-**Setting:** Living room interior tile. Friends scattered as NPCs. Guitar on the floor or against the wall.
+## Scene 3 — Bram's living room ("Trains" / Porcupine Tree)
+
+**Setting:** Living room interior, evening. Four sprites scattered around: **Bram, Benny (Bram's brother), Tobi, Michel.** A guitar leaning against the couch.
+
+**Asset notes:** Use `gfx/tilesets/house1.png` (Crystal house interior) palette-swapped warmer. NPC sprites: any 3 distinct ones for Bram/Benny/Tobi. Guitar = custom 8×8 prop sprite.
 
 **Beats:**
-- Quiet evening, just hanging out.
-- Michel picks up the guitar, plays *Trains* by Porcupine Tree.
-- Time seems to stand still.
-- Tobi later tells Michel this was a very profound moment for him.
+- Quiet evening at Bram's place. Just the four of them.
+- Michel picks up the guitar, starts playing *Trains* by Porcupine Tree.
+- The room goes still.
+- Tobi will tell Michel, much later, that this was a very profound moment for him.
 
-**Mechanically:** This is the silent beat. Almost no dialogue. Maybe just a "...". Maybe a few bars of a Porcupine Tree-flavored chiptune motif on Channel 3. The player feels the room go quiet. This is the scene the game *earns its way into the heart on* — if we can pull it off in 4-color GBC, it's the standout.
+**Mechanically:** This is the silent beat. Minimal dialogue — what carries the scene is the *music* (a chiptune motif based on the Trains intro, played on Channel 3 / wave — that's the GBC channel that best fakes a clean guitar) and the *stillness*: no one walks, no one speaks for several beats. After the music ends, one quiet line from Tobi. That's the whole scene.
 
-**Need from user:**
-- The name of the friend whose living room (use real name or omit? "*'s living room")
-- Whose guitar was it
-- Any specific line either of you said, or did nobody speak
+**Draft dialogue:**
+
+```
+[BRAM'S LIVING ROOM.
+Evening. Lamp on.]
+[Bram on the couch. Benny on
+the floor with a controller.
+Tobi in the armchair.]
+[Michel-sprite walks in.
+There's a guitar against
+the wall.]
+
+BRAM:     yo
+
+BENNY:    sup
+
+TOBI:     ...
+          [▼]
+          play something
+
+[Michel-sprite walks to the
+guitar. Picks it up.
+The room goes quiet.]
+
+[Music: TRAINS (intro motif).
+Wave channel, sparse. Square
+channels silent. Six bars.]
+
+[No one moves. No one talks.
+Even Benny puts the controller
+down.]
+
+[The motif resolves.]
+
+[A long beat.]
+
+TOBI:     ...
+
+[Another beat.]
+
+TOBI:     spasti.
+
+[Tobi's voice is different
+here. Quieter. The word means
+something else now. He says
+it the way you say
+"I love you" to a brother
+when you can't say the other
+thing yet.]
+
+[NARRATOR: ▼ Walk on.]
+```
+
+**Notes:**
+- "Spasti" third time. Each use has reframed the word: judgment → mock-affection → real affection. In this scene it carries the meaning Tobi will never say out loud.
+- Bram and Benny don't need lines beyond hello. Their presence is the point — Tobi is surrounded by friends, and *this* is the friend who makes the room stop.
+- The music note is the single hardest engineering ask in the whole game. A wave-channel arpeggio that suggests *Trains* without literally reproducing it. We don't need to nail the song — we need to nail the *feeling*. If we can't, fall back to silence + a soft pulse and a single guitar-string SFX.
 
 ---
 
-## Scene 4 — Spain, "La Cubanita" bar (vacation, comedy beat)
+---
 
-**Setting:** Bar interior tile. Two cute waitress NPC sprites. Bottles on shelves. Tobi-sprite increasingly wobbly.
+## Scene 4 — Spain, "La Cubanita" bar (vacation, ~age 18)
+
+**Setting:** Small bar interior, warm palette. Two waitress NPC sprites behind a counter. Bottles on shelves. Tables. Tobi-sprite and Michel-sprite at a table front-and-center. Tobi gets more wobble-frames as the scene progresses.
+
+**Asset notes:** Use a Crystal cafe/pub tile from `gfx/tilesets/` (look in `mahogany_redgyarados`-area sets, or recolor a `house1` interior). Waitresses = reuse `gfx/sprites/beauty.png` palette-swapped. "Drunk Tobi" = the same NPC sprite with a tilted frame or sweat-drop emote (Pokémon has the canonical `gfx/emotes/` set — perfect).
 
 **Beats:**
-- On vacation in Spain together.
-- Bar called something like La Cubanita (need exact name).
-- Waitresses figured out the two of them were into them, kept feeding them drinks every visit.
-- One night Tobi was so drunk he puked all over his bed.
-- His dad was Not Amused when he and Tobi's mom got back.
+- Vacation in Spain. ~18 years old. Just the two of them at the bar (Tobi was there with his family, but the bar runs are him + Michel).
+- A bar they keep returning to because the waitresses are cute.
+- The waitresses know exactly what's happening and keep bringing more drinks.
+- One night Tobi gets *catastrophically* drunk and pukes all over his bed.
+- His parents come back from their trip out and find the aftermath. Tobi's dad: not amused.
 
-**Tone:** Pure comedy. Drunk-text dialogue cadence. The bar visit can be a tiny gameplay loop: walk up to waitress → "ANOTHER ROUND?" → screen shake → fade out → cut to next morning, Tobi on bed.
+**Mechanically:** The scene is a tiny loop. Player walks Michel-sprite up to the counter. A waitress prompt: `ANOTHER ROUND?` `YES / NO`. The player picks YES. Tobi's wobble-frame intensifies. Screen does a brief horizon-shake effect on each round. After 3 rounds the screen fades, cut to the bedroom the next morning.
 
-**Need from user:**
-- Actual bar name if you remember it
-- Roughly what year / how old
-- Was this just you two, or with others
-- Tobi's dad — is he a character we should portray? Does he need a sprite?
+**Draft dialogue:**
+
+```
+[LA CUBANITA. Evening.
+Music thumping somewhere.]
+[Michel-sprite and Tobi-
+sprite at a table near the
+bar. Two waitresses behind
+the counter, smiling.]
+
+TOBI:     ...
+          [▼]
+          they're definitely
+          flirting
+
+MICHEL:   they're definitely
+          flirting with our
+          WALLETS
+
+TOBI:     no
+          [▼]
+          no this time it's
+          real
+
+MICHEL:   it's never real
+
+TOBI:     spasti
+
+[Player walks Michel-sprite
+up to the bar.]
+
+WAITRESS: hola guapo
+          [▼]
+          ANOTHER ROUND?
+
+> YES
+  NO
+
+[YES.]
+[Tobi-sprite gets a sweat-
+drop emote. Wobble.]
+
+WAITRESS: ...
+          [▼]
+          ANOTHER ROUND?
+
+> YES
+  NO
+
+[YES.]
+[Tobi-sprite leans 30°.
+Screen does a small shake.]
+
+WAITRESS: ...
+          ¿estás seguro?
+          [▼]
+          ANOTHER ROUND?
+
+> YES
+  NO
+
+[YES.]
+
+           * BURP *
+
+[Screen fades to black.]
+
+[CUT TO:
+ BEDROOM. MORNING.]
+[Tobi-sprite on the bed.
+The bed has a "stained"
+overlay tile. Tobi-sprite
+is fully horizontal.]
+
+TOBI:     ...
+          [▼]
+          oh no
+
+[A door slam offscreen.]
+
+TOBI'S DAD: (offscreen)
+            TOBIAS.
+            [▼]
+            TOBIAS.
+            WHAT.
+            HAPPENED.
+
+TOBI:     spasti.
+
+MICHEL:   me?
+          [▼]
+          you puked on yourself
+
+TOBI:     yeah but you LET me
+
+[NARRATOR: ▼ Walk on.]
+```
+
+**Notes:**
+- "Spasti" fourth time, now used by both of them and at each other. The word is fully theirs.
+- "TOBIAS" (his full name) from his dad off-screen — that universal *parent uses your full name when furious* moment.
+- The full bilingual touch ("hola guapo", "¿estás seguro?") in the waitress lines is enough to read as Spain without translating.
+- The "you LET me" closer is the kind of victim-blaming joke teenage friends actually make. Reads true.
+
+---
 
 ---
 
@@ -217,8 +425,12 @@ style:]
            ║ BLACKWING    ║
            ║    LAIR      ║
            ╚══════════════╝
+           < Bound by Blood >
 
-[Banner fades after 2 seconds.]
+[Banner fades after 2 seconds.
+"Bound by Blood" lingers half
+a second longer — that's the
+guild Michel just joined.]
 
 VENT CHAT:    <Aronian> ok we
               pull in 30 sec
@@ -340,10 +552,12 @@ by the end. You can tell.]
 - Pokémon-style **`! ! !`** alarm (the same one used when a trainer spots you) for the spawn trigger — it's a perfect canonical glyph for "oh no."
 - No music during the wipe. Music returns when the screen fades.
 
-**Need from user:**
-- Guild name? (Pure flavor, but if you remember it, gold.)
+**Locked:**
+- Guild: **Bound by Blood**
+- Demotion: real.
+
+**Still need (optional polish):**
 - Year? (BWL was current content roughly 2005–2006 — sets your age.)
-- Did Michel actually get demoted, or was that a joke that stuck? (Either works, but the current draft commits to "real demotion" because it's funnier.)
 - Are the personality reads above (Friets = the LMAO guy, Aerendil = lore-serious, Divinity = quiet "...", Tita = the empath, Gerrit = the curt warrior) right or wrong? Easy to reassign if so.
 
 ---
