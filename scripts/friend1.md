@@ -194,7 +194,9 @@ This is the emotional load-bearing scene of the whole game. Every other scene ex
 - Kicked from the raid team. Demoted to the worse team.
 - Tobi is dying laughing on Ventrilo / TeamSpeak.
 
-**Mechanically:** This is a tiny anti-puzzle the player *can't win*. On scene enter, a WoW-style zone banner reads **"Blackwing Lair"** centered on the screen. The raid lead's first chat line tells the player **"DEFINITELY DON'T WALK LEFT OR RIGHT."** That instruction *is* the trap — a Pokémon player given a "do not" will absolutely do it. The moment Michel-sprite walks one tile left or right, trash spawns from that side's doorway. The wipe is scripted; the gag is the explicit anti-instruction.
+**Mechanically:** This is a tiny anti-puzzle the player *can't win*. On scene enter, a WoW-style zone banner reads **"Blackwing Lair"** centered on the screen. The raid lead **Aronian** tells the player **"DEFINITELY DON'T WALK LEFT OR RIGHT."** That instruction *is* the trap — a Pokémon player given a "do not" will absolutely do it. The moment Michel-sprite walks one tile left or right, trash spawns from that side's doorway. The wipe is scripted; the gag is the explicit anti-instruction.
+
+**Guild roster on Vent:** Aronian (raidlead, takes everything personally), Tobi (heals), and at minimum Gerrit, Tita, Divinity, Friets, Aerendil chiming in. Each gets one line in the post-wipe chaos — every name is a real person Tobi will instantly recognize.
 
 **Draft dialogue (first pass):**
 
@@ -218,18 +220,21 @@ style:]
 
 [Banner fades after 2 seconds.]
 
-VENT CHAT:    <Raidlead> ok we
+VENT CHAT:    <Aronian> ok we
               pull in 30 sec
               [▼]
-              <Raidlead>
+              <Aronian>
               EVERYONE
               [▼]
-              <Raidlead>
+              <Aronian>
               DEFINITELY DO NOT
               WALK LEFT OR RIGHT
               [▼]
-              <Raidlead> stay on
+              <Aronian> stay on
               your mark
+              [▼]
+              <Friets> lmao who
+              would do that
               [▼]
               <Tobi> michel u
               hear that
@@ -254,6 +259,17 @@ right... is not.]
 the doorway Michel walked
 toward.]
 
+VENT CHAT:    <Gerrit> ADDS
+              [▼]
+              <Tita> WHERE
+              [▼]
+              <Divinity> oh no
+              [▼]
+              <Aerendil> by the
+              Light...
+              [▼]
+              <Friets> LMAOOOO
+
 VENT CHAT:    <Raidlead> WHO
               [▼]
               <Raidlead> WHO
@@ -275,20 +291,33 @@ Then the rest of the raid.
 
 [Black screen.]
 
-VENT CHAT:    <Raidlead> ...
+VENT CHAT:    <Aronian> ...
               [▼]
-              <Raidlead> who is
+              <Aronian> who is
               this guy
               [▼]
               <Tobi> uhhhh
               [▼]
               <Tobi> my friend
               [▼]
-              <Raidlead> hes off
+              <Gerrit> oof
+              [▼]
+              <Friets> RIP
+              michel
+              [▼]
+              <Aronian> hes off
               the team
               [▼]
-              <Raidlead> demoted.
+              <Aronian> demoted.
               casual rank.
+              [▼]
+              <Tita> sorry
+              michel :(
+              [▼]
+              <Aerendil> a noble
+              attempt friend
+              [▼]
+              <Divinity> ...
               [▼]
               <Tobi> michel
               [▼]
@@ -314,8 +343,8 @@ by the end. You can tell.]
 **Need from user:**
 - Guild name? (Pure flavor, but if you remember it, gold.)
 - Year? (BWL was current content roughly 2005–2006 — sets your age.)
-- The raid lead — was he a memorable dick, or just a generic Raidlead character? Could get a name.
-- Did Michel actually get demoted, or was that a joke that stuck? (Either works, but affects the line.)
+- Did Michel actually get demoted, or was that a joke that stuck? (Either works, but the current draft commits to "real demotion" because it's funnier.)
+- Are the personality reads above (Friets = the LMAO guy, Aerendil = lore-serious, Divinity = quiet "...", Tita = the empath, Gerrit = the curt warrior) right or wrong? Easy to reassign if so.
 
 ---
 
