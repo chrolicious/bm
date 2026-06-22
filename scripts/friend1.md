@@ -234,8 +234,16 @@ TOBI:     ...
 **Draft dialogue:**
 
 ```
-[LA CUBANITA. Evening.
-Music thumping somewhere.]
+[LA CUBANITA. Evening.]
+
+[Music: LA CUCARACHA, GBC
+chiptune. Pulse 1 + 2 carry
+the melody; wave for the
+oompah bass. Cheesy on
+purpose — exactly what a
+tourist bar called "La
+Cubanita" would play.]
+
 [Michel-sprite and Tobi-
 sprite at a table near the
 bar. Two waitresses behind
@@ -250,12 +258,9 @@ MICHEL:   they're definitely
           flirting with our
           WALLETS
 
-TOBI:     no
-          [▼]
-          no this time it's
-          real
+TOBI:     they want me
 
-MICHEL:   it's never real
+MICHEL:   they want our MONEY
 
 TOBI:     spasti
 
@@ -837,6 +842,7 @@ Drafted with dialogue: Sc 1, 2, 3, 4, 5, 6, 7.
 **Music decisions (locked):**
 - **TRAINS main motif** (Porcupine Tree) — GBC chiptune recreation. Debuts in Scene 3, reprises in Scene 7 under the ask, resolves on the title card. Music centerpiece of the ROM.
 - **WOW CLASSIC TAVERN THEME** — GBC chiptune recreation. BGM through Scene 2, diegetic to the WoW conversation. Instant guildie-recognition.
+- **LA CUCARACHA** — GBC chiptune. BGM through Scene 4 (La Cubanita bar). Cheesy on purpose — tourist-bar score.
 - BWL scene (6) gets its own short combat-tense track or silence-with-SFX during the wipe; music returns after.
 - Other scenes: silence + ambient SFX (bass thump through Aachen door, BBQ crackle, etc.) unless a track earns its way in.
 
