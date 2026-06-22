@@ -82,16 +82,18 @@ TOBI:     ugh
 **Notes on this draft:**
 - All Tobi, no narrator confession. The "repeat year" lives in the caption header, not in Michel's inner voice. Player gets the setup in one line and moves on.
 - "ugh / look at this nerd / front row AGAIN?" is the actual cadence of a 16-year-old slumped at the back. Light, dismissive, fun.
-- The Meerbusch dress-shirt mystery still plants here (Tobi wonders why the shirt) — pays off in Scene 7 ("Conzi. That was Conzi.")
+- The Meerbusch dress-shirt mystery still plants here (Tobi wonders why the shirt) — pays off in Scene 7 as a *comedy callback*. (Conzi was high-school, NOT the bride. The payoff is the joke of finally being told the answer 20 years later, not a romantic reveal.)
 - "Spasti." is still the closer, but now it's a teen mutter, not a Shakespearean pronouncement.
 
 ---
 
 ## Scene 2 — Schoolyard, in front of the gym (~age 16–17)
 
-**Setting:** Outdoor schoolyard tile, College Rolduc gym building in the background. **Friets, Bram, and Tobi** huddled, talking loud. Michel-sprite walks over.
+**Setting:** Outdoor schoolyard tile, College Rolduc gym building in the background. **Friets, BramT, and Tobi** huddled, talking loud. Michel-sprite walks over.
 
-**Asset notes:** Reuse `gfx/tilesets/johto.png` for outdoor ground. Three named NPC sprites for Friets, Bram, Tobi (pick distinct-silhouette sprites from `gfx/sprites/` — distinguishable at a glance matters since these three recur).
+**Asset notes:** Reuse `gfx/tilesets/johto.png` for outdoor ground. Three named NPC sprites for Friets, BramT, Tobi (pick distinct-silhouette sprites from `gfx/sprites/` — distinguishable at a glance matters since these three recur).
+
+**Disambiguation:** This is **BramT** (the living-room/WoW-crew Bram, Benny's brother). The other Bram — **BramS** — is the best-man-to-be and shows up in Scene 7. They are different people; user calls them BramT/BramS to keep them straight. *Confirm with user if this Bram should actually be BramS instead.*
 
 **Draft dialogue:**
 
@@ -99,7 +101,7 @@ TOBI:     ugh
 [Outside the gym at College
 Rolduc. Sun out.]
 
-[Friets, Bram, and Tobi
+[Friets, BramT, and Tobi
 huddled, talking loud.]
 
 [Michel-sprite walks over.]
@@ -107,7 +109,7 @@ huddled, talking loud.]
 FRIETS:    bro you HAVE to
            try this game
 
-BRAM:      we just hit 60
+BRAMT:     we just hit 60
            [▼]
            the elite zones are
            insane
@@ -124,7 +126,7 @@ MICHEL:    can't
 
 FRIETS:    bro
 
-BRAM:      bro
+BRAMT:     bro
 
 TOBI:      bro
            [▼]
@@ -155,14 +157,14 @@ game for the next 20 years.]
 
 ---
 
-## Scene 3 — Bram's living room ("Trains" / Porcupine Tree)
+## Scene 3 — BramT's living room ("Trains" / Porcupine Tree)
 
-**Setting:** Living room interior, evening. Four sprites scattered around: **Bram, Benny (Bram's brother), Tobi, Michel.** A guitar leaning against the couch.
+**Setting:** Living room interior, evening. Four sprites scattered around: **BramT, Benny (BramT's brother), Tobi, Michel.** A guitar leaning against the couch.
 
-**Asset notes:** Use `gfx/tilesets/house1.png` (Crystal house interior) palette-swapped warmer. NPC sprites: any 3 distinct ones for Bram/Benny/Tobi. Guitar = custom 8×8 prop sprite.
+**Asset notes:** Use `gfx/tilesets/house1.png` (Crystal house interior) palette-swapped warmer. NPC sprites: any 3 distinct ones for BramT/Benny/Tobi. Guitar = custom 8×8 prop sprite.
 
 **Beats:**
-- Quiet evening at Bram's place. Just the four of them.
+- Quiet evening at BramT's place. Just the four of them.
 - Michel picks up the guitar, starts playing *Trains* by Porcupine Tree.
 - The room goes still.
 - Tobi will tell Michel, much later, that this was a very profound moment for him.
@@ -172,15 +174,15 @@ game for the next 20 years.]
 **Draft dialogue:**
 
 ```
-[BRAM'S LIVING ROOM.
+[BRAMT'S LIVING ROOM.
 Evening. Lamp on.]
-[Bram on the couch. Benny on
+[BramT on the couch. Benny on
 the floor. Tobi in the chair.
 Guitar against the wall.]
 
 [Michel-sprite walks in.]
 
-BRAM:     yo
+BRAMT:    yo
 
 BENNY:    sup
 
@@ -532,7 +534,7 @@ MICHEL:   yeah.
 
 **Mechanically:** This is a tiny anti-puzzle the player *can't win*. On scene enter, a WoW-style zone banner reads **"Blackwing Lair"** centered on the screen. The raid lead **Aronian** tells the player **"DEFINITELY DON'T WALK LEFT OR RIGHT."** That instruction *is* the trap — a Pokémon player given a "do not" will absolutely do it. The moment Michel-sprite walks one tile left or right, trash spawns from that side's doorway. The wipe is scripted; the gag is the explicit anti-instruction.
 
-**Guild roster on Vent:** Aronian (raidlead, takes everything personally), Tobi (heals), and at minimum Gerrit, Tita, Divinity, Friets, Aerendil chiming in. Each gets one line in the post-wipe chaos — every name is a real person Tobi will instantly recognize.
+**Guild roster on Vent — using actual WoW handles, not real names** (Tobi will recognize all of these instantly; that's why we use them): **Aronian** (raidlead), **Ozora** = Tobi (heals), **Xoh** = Michel (warlock — player's tag in chat), **Friets** (same handle as IRL nickname), **Ayaro** = BramT, plus **Gerrit**, **Tita**, **Divinity**, **Aerendil** as other "Bound by Blood" guildmates. Every name is a real handle from a real raid — the authenticity is the joke and the love letter at once.
 
 **Draft dialogue (first pass):**
 
@@ -576,12 +578,12 @@ VENT CHAT:    <Aronian> ok we
               <Friets> lmao who
               would do that
               [▼]
-              <Tobi> michel u
+              <Ozora> xoh u
               hear that
               [▼]
-              <Michel> ya all good
+              <Xoh> ya all good
               [▼]
-              <Michel> just gonna
+              <Xoh> just gonna
               look around
 
 [The player has control of
@@ -609,17 +611,20 @@ VENT CHAT:    <Gerrit> ADDS
               Light...
               [▼]
               <Friets> LMAOOOO
-
-VENT CHAT:    <Raidlead> WHO
               [▼]
-              <Raidlead> WHO
+              <Ayaro> well that's
+              that
+
+VENT CHAT:    <Aronian> WHO
+              [▼]
+              <Aronian> WHO
               PULLED
               [▼]
-              <Tobi> oh my god
+              <Ozora> oh my god
               [▼]
-              <Tobi> oh my GOD
+              <Ozora> oh my GOD
               [▼]
-              <Raidlead> WIPE IT
+              <Aronian> WIPE IT
               WIPE IT WIPE IT
 
 [Screen flashes red.
@@ -636,14 +641,13 @@ VENT CHAT:    <Aronian> ...
               <Aronian> who is
               this guy
               [▼]
-              <Tobi> uhhhh
+              <Ozora> uhhhh
               [▼]
-              <Tobi> my friend
+              <Ozora> my friend
               [▼]
               <Gerrit> oof
               [▼]
-              <Friets> RIP
-              michel
+              <Friets> RIP xoh
               [▼]
               <Aronian> hes off
               the team
@@ -651,21 +655,23 @@ VENT CHAT:    <Aronian> ...
               <Aronian> demoted.
               casual rank.
               [▼]
-              <Tita> sorry
-              michel :(
+              <Tita> sorry xoh
+              :(
               [▼]
               <Aerendil> a noble
               attempt friend
               [▼]
               <Divinity> ...
               [▼]
-              <Tobi> michel
+              <Ayaro> rough buddy
               [▼]
-              <Tobi> ...
+              <Ozora> xoh
               [▼]
-              <Tobi> spasti.
+              <Ozora> ...
               [▼]
-              <Michel> yeah ok
+              <Ozora> spasti.
+              [▼]
+              <Xoh> yeah ok
               fair
 
 [Scene fades.
@@ -690,15 +696,115 @@ by the end. You can tell.]
 
 ---
 
-## Scene 7 — Present day / The Ask
+## Scene 7 — Garden BBQ / The Ask
 
-**Inheriting from Scene 5:** The brother-truth was already named in Aachen ("you were my brother now. and i'd move heaven and earth to protect you."). Scene 7 must NOT re-narrate Aachen — that would deflate it. Scene 7 *acts on* what was named: 20 years later, Michel asks Tobi to be best man because of who Tobi is, because of all the nights since that one. The ask is the call to action that the narrator line set up.
+**Inheriting from Scene 5:** The brother-truth was already named in Aachen ("you were my brother now. and i'd move heaven and earth to protect you."). Scene 7 must NOT re-narrate Aachen — that would deflate it. Scene 7 *acts on* what was named.
 
-**Setting:** TBD. Could be:
-  (a) Michel's apartment (player wakes up, "20 years later…")
-  (b) A wedding-themed location (church / venue)
-  (c) Just a black screen with the question
-  (d) Pokémon-credits-style scrolling montage of all the previous scenes' rooms, then the ask
+**Setting:** Garden, afternoon, sunny. A BBQ smoking in the back. Friends scattered as NPC sprites at a picnic table or standing around. **BramS** (the best-man-to-be — handle: **Freak0r**, NOT the same person as BramT from Scene 3) by the grill with a beer. Tobi-sprite at a picnic table.
+
+**IRL frame:** this scene matches the actual BBQ at which Michel will hand Tobi (and, separately, BramS) his cartridge. The in-game scene IS the live moment of presentation.
+
+**Cover-art note:** BramS's handle **Freak0r** appears on BramS's cartridge cover. Tobi's cartridge cover correspondingly should feature **Ozora**. Each cartridge personalized to its recipient by handle — the shared brand reads "BESTMEN" with the recipient's handle as subtitle / sigil.
+
+**Asset notes:** Outdoor day palette (`gfx/tilesets/johto.png` recolored sunny). Custom 8×8 props: grill (with smoke animation if budget allows), picnic table, beer bottles. BramS NPC sprite — pick a distinctive silhouette so Tobi knows instantly who it is.
+
+**Draft dialogue:**
+
+```
+[GARDEN. AFTERNOON. SUN.]
+[A BBQ smokes in the back.
+BramS-sprite by the grill,
+beer in hand. Friends as
+NPC sprites scattered.]
+
+[Tobi-sprite at a picnic
+table.]
+
+[Michel-sprite walks up.
+Sits down opposite.]
+
+MICHEL:   tobi.
+
+TOBI:     ...
+          [▼]
+          michel.
+          [▼]
+          ...what's with
+          the dress shirt.
+
+[A beat. Michel-sprite
+looks down at his shirt.]
+
+MICHEL:   ...
+          [▼]
+          Conzi.
+          [▼]
+          in Meerbusch.
+
+TOBI:     ohhhhh
+
+MICHEL:   yeah.
+
+TOBI:     SPASTI.
+
+[Tobi-sprite laughs.
+A long beat. The laugh
+settles. The BBQ smokes.]
+
+MICHEL:   tobi.
+          [▼]
+          this whole game
+          was a question.
+
+TOBI:     ...
+          [▼]
+          ask it.
+
+MICHEL:   will you be my
+          best man?
+
+> Yes
+  Heil Yes
+
+[Either choice plays the
+same response.]
+
+       *POOF*
+[♪ ITEM GET ♪]
+TOBI got
+BEST MAN BADGE!
+
+[Beat.]
+
+TOBI:     ...
+          [▼]
+          spasti.
+          [▼]
+          of course.
+
+[Screen fades to title.]
+
+           ╔══════════════╗
+           ║   BESTMEN    ║
+           ║              ║
+           ║   Ozora      ║
+           ╚══════════════╝
+```
+
+(The title-card sigil = the recipient's WoW handle. Tobi's ROM ends on "Ozora." BramS's ROM ends on "Freak0r." Each man's own name as the closing chord.)
+
+**Notes on this draft:**
+- **Opens with the dress-shirt callback.** 20 years of waiting for an answer, paid off in three lines. Tobi asks before Michel can even begin. The "SPASTI." in all caps is the comedic eruption — its loudest, lightest use yet. Word's arc: silent judgment → peer pressure (absent) → quiet affection → shared shorthand → outward shield → comedic eruption → quiet "of course." Seven uses total, each one different.
+- **"this whole game was a question."** One sentence collapses the entire ROM. Doesn't recap a single scene; just names what the player has been doing for the last 8 minutes.
+- **"ask it."** Tobi giving Michel permission. The answer is already given before the question is asked — and both of them know it.
+- **[Yes] / [Heil Yes].** Two yeses. The German pun on "Hell yes" lands in their shared vocabulary. Either choice leads to the same response — there is no "no" branch, because there never was.
+- **BEST MAN BADGE.** Pure Pokémon item-get nostalgia. The fanfare, the floating item, the all-caps received-item line. Period-correct. Could even reuse the actual Crystal `♪ ITEM GET ♪` jingle if we can rip the macro.
+- **Tobi's closing "spasti. of course."** The word's final use. Quiet again, like Scene 3. Means "yes, you idiot, of course it's yes."
+- **Title card "BESTMEN for Tobi"** — personalizes the cartridge. The Bram ROM will end with the same card, "for Bram." Each one is HIS game.
+
+**Open / optional:**
+- Should Bram-Friend-2 speak a line at any point? Could call out "yo michel" as Michel walks in — pure scenery. Or stay silent at the grill so all the attention is on Tobi. My instinct: silent at the grill. The scene is between Michel and Tobi; Bram has his own ROM coming.
+- Post-credits? Could roll a short credit scroll naming everyone — Tobi, Bram, Bram (lol), Benny, Friets, Aronian, Gerrit, Tita, Divinity, Aerendil, Conzi — kind of a "the cast of your life" beat. Or end clean on the title card. Up to you.
 
 **Beats:**
 - The "you've come this far" moment.
