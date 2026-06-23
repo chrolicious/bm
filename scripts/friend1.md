@@ -34,14 +34,14 @@ TOBI: line one (≤18 chars)
 
 ## Arc
 
-Seven scenes, played as discrete tilemaps with `walk on →` transitions between them (no overworld map; the walk-on prompt is the spine). Pacing: light comedy through Sc 1–4 → quiet beat at Sc 3 → comedy peak at Sc 4 → CLIMAX at Sc 5 → comedy recovery at Sc 6 → resolution + ask at Sc 7. Comedy carries the player through the early stuff so Aachen lands.
+Seven scenes, played as discrete tilemaps with `walk on →` transitions between them (no overworld map; the walk-on prompt is the spine). **Chronological order** — each scene later than the last. Pacing: light comedy through Sc 1–2 → quiet beat at Sc 3 → comedy at Sc 4 → comedy peak at Sc 5 (BWL chaos) → CLIMAX at Sc 6 (Aachen) → resolution + ask at Sc 7. The BWL chaos is what makes the silence of Aachen land — life was light right up until it wasn't.
 
 ```
-[TITLE] → [CLASSROOM] → [SCHOOLYARD] → [LIVING ROOM] → [SPAIN BAR] → [AACHEN STAIRS] → [BWL RAID] → [ASK]
-           cold open    WoW first hint   "trains" beat   comedy beat   climax              comedy↺      the question
+[TITLE] → [CLASSROOM] → [SCHOOLYARD] → [LIVING ROOM] → [SPAIN BAR] → [BWL RAID] → [AACHEN STAIRS] → [ASK]
+           cold open    WoW first hint   "trains" beat   comedy beat   comedy peak    climax              the question
 ```
 
-Seven scenes. The BWL raid sits *after* Aachen on purpose: life kept going. Tobi's mom is gone, the friendship deepened, and now you're two guys laughing on Ventrilo because Michel just wiped a 40-man raid. Heartbreak → recovery → resolution.
+The brother-truth named at the end of Aachen flows *directly* into the present-day ask with no comedy interlude between them.
 
 ---
 
@@ -368,7 +368,186 @@ TOBI:     *sigh*
 
 ---
 
-## Scene 5 — Aachen, the club stairs (CLIMAX)
+
+## Scene 5 — Blackwing Lair, first raid (comedy beat before the climax)
+
+**Setting:** The Razorgore egg room — a dim cave chamber with dragon eggs in the center, doorways on either side, mobs about to spawn. Tile-art note: we'll fake the BWL aesthetic with a cave palette (use `gfx/tilesets/cave.png` or `gfx/tilesets/dark_cave.png` from pokecrystal, palette-swap to red/black) and a couple of dragon-egg sprites as scenery. Player-Michel sprite, four NPC-raider sprites lined up behind him as a "raid party," a horde of orc-trash sprites just past the doorway.
+
+**Beats:**
+- Michel's first raid with Tobi's guild. He has NO idea how anything works.
+- The raid is pre-pull, everyone is positioning.
+- Michel-sprite drifts forward to look at the eggs.
+- Body-pulls all the trash in the egg room. Mobs swarm.
+- 40-man wipe.
+- Kicked from the raid team. Demoted to the worse team.
+- Tobi is dying laughing on Ventrilo / TeamSpeak.
+
+**Mechanically:** This is a tiny anti-puzzle the player *can't win*. On scene enter, a WoW-style zone banner reads **"Blackwing Lair"** centered on the screen. The raid lead **Aronian** tells the player **"DEFINITELY DON'T WALK LEFT OR RIGHT."** That instruction *is* the trap — a Pokémon player given a "do not" will absolutely do it. The moment Michel-sprite walks one tile left or right, trash spawns from that side's doorway. The wipe is scripted; the gag is the explicit anti-instruction.
+
+**Guild roster on Vent — using actual WoW handles, not real names** (Tobi will recognize all of these instantly; that's why we use them): **Aronian** (raidlead), **Ozora** = Tobi (heals), **Xoh** = Michel (warlock — player's tag in chat), **Friets** (same handle as IRL nickname), **Ayaro** = BramT, plus **Gerrit**, **Tita**, **Divinity**, **Aerendil** as other "Bound by Blood" guildmates. Every name is a real handle from a real raid — the authenticity is the joke and the love letter at once.
+
+**Draft dialogue (first pass):**
+
+```
+[Years later.]
+[CAVE INTERIOR. Red palette.
+ Dragon eggs in the center.]
+[Michel-sprite at the front
+of a line of NPC raiders.
+Tobi-sprite somewhere in
+the back, on heals.]
+
+[A banner slides in from the
+top of the screen and rests
+mid-screen, WoW zone-change
+style:]
+
+           ╔══════════════╗
+           ║ BLACKWING    ║
+           ║    LAIR      ║
+           ╚══════════════╝
+           < Bound by Blood >
+
+[Banner fades after 2 seconds.
+"Bound by Blood" lingers half
+a second longer — that's the
+guild Michel just joined.]
+
+VENT CHAT:    <Aronian> ok we
+              pull in 30 sec
+              [▼]
+              <Aronian>
+              EVERYONE
+              [▼]
+              <Aronian>
+              DEFINITELY DO NOT
+              WALK LEFT OR RIGHT
+              [▼]
+              <Aronian> stay on
+              your mark
+              [▼]
+              <Friets> lmao who
+              would do that
+              [▼]
+              <Ozora> xoh u
+              hear that
+              [▼]
+              <Xoh> ya all good
+              [▼]
+              <Xoh> just gonna
+              look around
+
+[The player has control of
+Michel-sprite. North wall =
+eggs. East and west = dark
+tunnel doorways. Forward
+(north) is fine. Left or
+right... is not.]
+
+[Player presses ← or →.]
+
+           ! ! !
+
+[Orc trash floods in from
+the doorway Michel walked
+toward.]
+
+VENT CHAT:    <Gerrit> ADDS
+              [▼]
+              <Tita> WHERE
+              [▼]
+              <Divinity> oh no
+              [▼]
+              <Aerendil> by the
+              Light...
+              [▼]
+              <Friets> LMAOOOO
+              [▼]
+              <Ayaro> well that's
+              that
+
+VENT CHAT:    <Aronian> WHO
+              [▼]
+              <Aronian> WHO
+              PULLED
+              [▼]
+              <Ozora> oh my god
+              [▼]
+              <Ozora> oh my GOD
+              [▼]
+              <Aronian> WIPE IT
+              WIPE IT WIPE IT
+
+[Screen flashes red.
+"YOU HAVE DIED" text.
+Then the rest of the raid.
+40-man wipe.]
+
+           * WIPE *
+
+[Black screen.]
+
+VENT CHAT:    <Aronian> ...
+              [▼]
+              <Aronian> who is
+              this guy
+              [▼]
+              <Ozora> uhhhh
+              [▼]
+              <Ozora> my friend
+              [▼]
+              <Gerrit> oof
+              [▼]
+              <Friets> RIP xoh
+              [▼]
+              <Aronian> hes off
+              the team
+              [▼]
+              <Aronian> demoted.
+              casual rank.
+              [▼]
+              <Tita> sorry xoh
+              :(
+              [▼]
+              <Aerendil> a noble
+              attempt friend
+              [▼]
+              <Divinity> ...
+              [▼]
+              <Ayaro> rough buddy
+              [▼]
+              <Ozora> xoh
+              [▼]
+              <Ozora> ...
+              [▼]
+              <Ozora> spasti.
+              [▼]
+              <Xoh> yeah ok
+              fair
+
+[Scene fades.
+Both of them are laughing
+by the end. You can tell.]
+```
+
+**Notes on this draft:**
+- Vent chat formatted as a chat log inside the dialogue box — `<Name> text` cadence is instantly recognizable to anyone who voice-chatted in 2005.
+- The "[Years later.]" caption at the top is the only time-skip marker the player needs — the BLACKWING LAIR banner does the rest of the re-orientation work.
+- "<Ozora> spasti." in the post-wipe chat is the word in its established warm shared-shorthand mode (developed in Sc 3-4). Casual friend-banter affection in voice chat. (Aachen hasn't happened yet — this is the word still light, before it gets weaponized as a shield in Sc 6.)
+- Aronian's "who is this guy" deliberately mirrors Tobi's Scene 1 line. Different room, same question, very different answer this time.
+- Pokémon-style **`! ! !`** alarm (the same one used when a trainer spots you) for the spawn trigger — it's a perfect canonical glyph for "oh no."
+- No music during the wipe. Music returns when the screen fades.
+
+**Locked:**
+- Guild: **Bound by Blood**
+- Demotion: real.
+
+**Still need (optional polish):**
+- Year? (BWL was current content roughly 2005–2006 — sets your age.)
+- Are the personality reads above (Friets = the LMAO guy, Aerendil = lore-serious, Divinity = quiet "...", Tita = the empath, Gerrit = the curt warrior) right or wrong? Easy to reassign if so.
+
+---
+## Scene 6 — Aachen, the club stairs (CLIMAX)
 
 **Setting:** Two tilemaps, played as one continuous scene:
 1. **Bar interior** — Aachen club, dark palette, a few dancing NPC silhouettes, bass-thump SFX, an exit door on one wall.
@@ -380,7 +559,7 @@ The scene is a single emotional unit but visually transitions: bar → follow �
 
 **The spine (per user's recollection):** Tobi knew his mom had died that morning. He spent the whole day with the group anyway, and the whole night, because he didn't want to ruin it. Michel realizing this — that Tobi chose to carry it alone for the friends' sake — is the moment the bond becomes brotherhood. *That* is what the player has to feel. Not the death. The choice.
 
-**Word policy:** "spasti" is absent from this scene. The word is too small for what's happening. Its absence is the signal that we're somewhere sacred. It returns, transformed, in Scene 6 (BWL) — proof that Tobi recovered the lightness, and that the friendship survived.
+**Word policy:** "spasti" is absent through the heavy beats of this scene — the word is too small for what's happening. Its absence is the signal that we're somewhere sacred. It returns at the very end, transformed once more: Michel's "Halt's Maul du Spasti" as a shield, then Tobi's "...Spastis." as a shared shield. The recovery happens *within* this scene, not after.
 
 **Draft dialogue:**
 
@@ -557,192 +736,13 @@ MICHEL:   yeah.
 - **Narrator block** — user's own words. Michel's thought arriving in the quiet after the words are done. This is the one moment in the scene the inside-voice surfaces, and it's why the rest of the scene can stay so spare.
 
 **Scene 7 implications:**
-- The "all day" insight is *named here*, in Scene 5, in the user's own words. Scene 7 must NOT re-explain it. Scene 7 acts on it instead: Michel asks because Tobi is the person revealed in this scene, and has been ever since. No re-narrating the same moment.
-
----
-
-## Scene 6 — Blackwing Lair, first raid (comedy beat after the climax)
-
-**Setting:** The Razorgore egg room — a dim cave chamber with dragon eggs in the center, doorways on either side, mobs about to spawn. Tile-art note: we'll fake the BWL aesthetic with a cave palette (use `gfx/tilesets/cave.png` or `gfx/tilesets/dark_cave.png` from pokecrystal, palette-swap to red/black) and a couple of dragon-egg sprites as scenery. Player-Michel sprite, four NPC-raider sprites lined up behind him as a "raid party," a horde of orc-trash sprites just past the doorway.
-
-**Beats:**
-- Michel's first raid with Tobi's guild. He has NO idea how anything works.
-- The raid is pre-pull, everyone is positioning.
-- Michel-sprite drifts forward to look at the eggs.
-- Body-pulls all the trash in the egg room. Mobs swarm.
-- 40-man wipe.
-- Kicked from the raid team. Demoted to the worse team.
-- Tobi is dying laughing on Ventrilo / TeamSpeak.
-
-**Mechanically:** This is a tiny anti-puzzle the player *can't win*. On scene enter, a WoW-style zone banner reads **"Blackwing Lair"** centered on the screen. The raid lead **Aronian** tells the player **"DEFINITELY DON'T WALK LEFT OR RIGHT."** That instruction *is* the trap — a Pokémon player given a "do not" will absolutely do it. The moment Michel-sprite walks one tile left or right, trash spawns from that side's doorway. The wipe is scripted; the gag is the explicit anti-instruction.
-
-**Guild roster on Vent — using actual WoW handles, not real names** (Tobi will recognize all of these instantly; that's why we use them): **Aronian** (raidlead), **Ozora** = Tobi (heals), **Xoh** = Michel (warlock — player's tag in chat), **Friets** (same handle as IRL nickname), **Ayaro** = BramT, plus **Gerrit**, **Tita**, **Divinity**, **Aerendil** as other "Bound by Blood" guildmates. Every name is a real handle from a real raid — the authenticity is the joke and the love letter at once.
-
-**Draft dialogue (first pass):**
-
-```
-[Years later.]
-[CAVE INTERIOR. Red palette.
- Dragon eggs in the center.]
-[Michel-sprite at the front
-of a line of NPC raiders.
-Tobi-sprite somewhere in
-the back, on heals.]
-
-[A banner slides in from the
-top of the screen and rests
-mid-screen, WoW zone-change
-style:]
-
-           ╔══════════════╗
-           ║ BLACKWING    ║
-           ║    LAIR      ║
-           ╚══════════════╝
-           < Bound by Blood >
-
-[Banner fades after 2 seconds.
-"Bound by Blood" lingers half
-a second longer — that's the
-guild Michel just joined.]
-
-VENT CHAT:    <Aronian> ok we
-              pull in 30 sec
-              [▼]
-              <Aronian>
-              EVERYONE
-              [▼]
-              <Aronian>
-              DEFINITELY DO NOT
-              WALK LEFT OR RIGHT
-              [▼]
-              <Aronian> stay on
-              your mark
-              [▼]
-              <Friets> lmao who
-              would do that
-              [▼]
-              <Ozora> xoh u
-              hear that
-              [▼]
-              <Xoh> ya all good
-              [▼]
-              <Xoh> just gonna
-              look around
-
-[The player has control of
-Michel-sprite. North wall =
-eggs. East and west = dark
-tunnel doorways. Forward
-(north) is fine. Left or
-right... is not.]
-
-[Player presses ← or →.]
-
-           ! ! !
-
-[Orc trash floods in from
-the doorway Michel walked
-toward.]
-
-VENT CHAT:    <Gerrit> ADDS
-              [▼]
-              <Tita> WHERE
-              [▼]
-              <Divinity> oh no
-              [▼]
-              <Aerendil> by the
-              Light...
-              [▼]
-              <Friets> LMAOOOO
-              [▼]
-              <Ayaro> well that's
-              that
-
-VENT CHAT:    <Aronian> WHO
-              [▼]
-              <Aronian> WHO
-              PULLED
-              [▼]
-              <Ozora> oh my god
-              [▼]
-              <Ozora> oh my GOD
-              [▼]
-              <Aronian> WIPE IT
-              WIPE IT WIPE IT
-
-[Screen flashes red.
-"YOU HAVE DIED" text.
-Then the rest of the raid.
-40-man wipe.]
-
-           * WIPE *
-
-[Black screen.]
-
-VENT CHAT:    <Aronian> ...
-              [▼]
-              <Aronian> who is
-              this guy
-              [▼]
-              <Ozora> uhhhh
-              [▼]
-              <Ozora> my friend
-              [▼]
-              <Gerrit> oof
-              [▼]
-              <Friets> RIP xoh
-              [▼]
-              <Aronian> hes off
-              the team
-              [▼]
-              <Aronian> demoted.
-              casual rank.
-              [▼]
-              <Tita> sorry xoh
-              :(
-              [▼]
-              <Aerendil> a noble
-              attempt friend
-              [▼]
-              <Divinity> ...
-              [▼]
-              <Ayaro> rough buddy
-              [▼]
-              <Ozora> xoh
-              [▼]
-              <Ozora> ...
-              [▼]
-              <Ozora> spasti.
-              [▼]
-              <Xoh> yeah ok
-              fair
-
-[Scene fades.
-Both of them are laughing
-by the end. You can tell.]
-```
-
-**Notes on this draft:**
-- Vent chat formatted as a chat log inside the dialogue box — `<Name> text` cadence is instantly recognizable to anyone who voice-chatted in 2005.
-- The "[Years later.]" caption at the top is the only time-skip marker the player needs — the BLACKWING LAIR banner does the rest of the re-orientation work.
-- "<Ozora> spasti." in the post-wipe chat is the word fully recovered — proof the friendship survived Aachen. Light, warm, the way Scene 3 was, but now in voice chat.
-- Aronian's "who is this guy" deliberately mirrors Tobi's Scene 1 line. Different room, same question, very different answer this time.
-- Pokémon-style **`! ! !`** alarm (the same one used when a trainer spots you) for the spawn trigger — it's a perfect canonical glyph for "oh no."
-- No music during the wipe. Music returns when the screen fades.
-
-**Locked:**
-- Guild: **Bound by Blood**
-- Demotion: real.
-
-**Still need (optional polish):**
-- Year? (BWL was current content roughly 2005–2006 — sets your age.)
-- Are the personality reads above (Friets = the LMAO guy, Aerendil = lore-serious, Divinity = quiet "...", Tita = the empath, Gerrit = the curt warrior) right or wrong? Easy to reassign if so.
+- The "all day" insight is *named here*, in Scene 6, in the user's own words. Scene 7 must NOT re-explain it. Scene 7 acts on it instead: Michel asks because Tobi is the person revealed in this scene, and has been ever since. No re-narrating the same moment.
 
 ---
 
 ## Scene 7 — Garden BBQ / The Ask
 
-**Inheriting from Scene 5:** The brother-truth was already named in Aachen ("you were my brother now. and i'd move heaven and earth to protect you."). Scene 7 must NOT re-narrate Aachen — that would deflate it. Scene 7 *acts on* what was named.
+**Inheriting from Scene 6:** The brother-truth was already named in Aachen ("you were my brother now. and i'd move heaven and earth to protect you."). Scene 7 must NOT re-narrate Aachen — that would deflate it. Scene 7 *acts on* what was named. Aachen flows *directly* into this scene (no comedy interlude between them); the narrator vow at the end of Sc 6 is the immediate setup for the ask.
 
 **Setting:** Garden, afternoon, sunny. A BBQ smoking in the back. Friends scattered as NPC sprites at a picnic table or standing around. **BramS** (the best-man-to-be — handle: **Freak0r**, NOT the same person as BramT from Scene 3) by the grill with a beer. Tobi-sprite at a picnic table.
 
@@ -879,8 +879,8 @@ Drafted with dialogue: Sc 1, 2, 3, 4, 5, 6, 7.
 - **TRAINS main motif** (Porcupine Tree) — GBC chiptune recreation. Debuts in Scene 3, reprises in Scene 7 under the ask, resolves on the title card. Music centerpiece of the ROM.
 - **WOW CLASSIC TAVERN THEME** — GBC chiptune recreation. BGM through Scene 2, diegetic to the WoW conversation. Instant guildie-recognition.
 - **LA CUCARACHA** — GBC chiptune. BGM through Scene 4 (La Cubanita bar). Cheesy on purpose — tourist-bar score.
-- **AACHEN BEAT** — generic four-on-the-floor club track, GBC chiptune. Plays through Scene 5 entirely: full volume inside the bar; muffled (filtered + lower-pitched + half-volume) the moment the door closes. Continues unbroken through the silence, the hug, the narrator coda, and the snap. The world doesn't stop partying while Tobi's has ended.
-- BWL scene (6) gets its own short combat-tense track or silence-with-SFX during the wipe; music returns after.
+- **AACHEN BEAT** — generic four-on-the-floor club track, GBC chiptune. Plays through Scene 6 entirely: full volume inside the bar; muffled (filtered + lower-pitched + half-volume) the moment the door closes. Continues unbroken through the silence, the hug, the narrator coda, and the snap. The world doesn't stop partying while Tobi's has ended.
+- BWL scene (5) gets its own short combat-tense track or silence-with-SFX during the wipe; music returns after.
 - Other scenes: silence + ambient SFX (BBQ crackle, etc.) unless a track earns its way in.
 
 **Asset summary** (per-scene asset notes live in each scene's body; this is the rollup):
@@ -890,8 +890,8 @@ Drafted with dialogue: Sc 1, 2, 3, 4, 5, 6, 7.
 | 2 Schoolyard | `gfx/tilesets/johto.png` | Friets, BramT NPC sprites (or reuse Crystal NPCs) |
 | 3 BramT living room | `gfx/tilesets/house1.png` | BramT, Benny NPC sprites + 8×8 guitar prop |
 | 4 La Cubanita | recolor Crystal pub/cafe tile | waitress NPC palette, drunk-Tobi sprite variant, Tobi's-dad silhouette |
-| 5 Aachen | Crystal nightclub-adjacent tile + night street tile | bouncer silhouette, hug-pair frame or ♥ overlay |
-| 6 BWL | `gfx/tilesets/cave.png` red palette | dragon-egg props, zone-banner overlay, `! ! !` glyph (Crystal stock) |
+| 5 BWL | `gfx/tilesets/cave.png` red palette | dragon-egg props, zone-banner overlay, `! ! !` glyph (Crystal stock) |
+| 6 Aachen | Crystal nightclub-adjacent tile + night street tile | bouncer silhouette, hug-pair frame or ♥ overlay |
 | 7 BBQ | `johto.png` sunny palette | BramS NPC, grill 8×8 prop, BEST MAN BADGE item sprite, title-card overlay |
 
 **Open / non-blocking:**
