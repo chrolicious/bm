@@ -386,11 +386,26 @@ The scene is a single emotional unit but visually transitions: bar → follow �
 
 ```
 [INSIDE THE CLUB. AACHEN.
-Late. Bass thumps. Dim red
-and blue tile palette. Two
-NPC silhouettes dancing. The
-exit door is on the east
-wall.]
+Late. Dim red and blue tile
+palette. Two NPC silhouettes
+dancing. The exit door is on
+the east wall.]
+
+[Music: AACHEN BEAT —
+generic four-on-the-floor
+club track, GBC chiptune.
+Pulse 1 + noise channel
+carry the beat. Plays at
+full volume inside; loops
+through the entire scene
+but gets MUFFLED (filtered,
+lower-pitched, half-volume)
+the moment the door closes.
+Continues through the silence,
+the hug, the narrator, the
+snap. The world doesn't stop
+partying just because Tobi's
+has ended.]
 
 [Michel-sprite stands near
 the bar. Tobi-sprite is
@@ -443,13 +458,13 @@ look over.]
 [Another beat.]
 
 TOBI:     ...
-          [▼]
-          my mom died this
-          morning.
 
 [Tobi-sprite shakes. Once.
 Then again. Then doesn't
 stop.]
+
+[Michel reads it on his face.
+Nothing said.]
 
 [Michel-sprite scoots over.
 The sprites overlap. A small
@@ -508,15 +523,9 @@ MICHEL:   Halt's Maul
 
            ! ! !
 
-[Screen shakes. NPCs back
-up a step.]
-
-NPC 1:    woah ok
-
-NPC 2:    we're going
-          we're going
-
-[They leave.]
+[Screen shakes. NPCs turn
+and walk off fast. No
+parting words.]
 
 [Michel-sprite sits back
 down. Close to Tobi.]
@@ -525,7 +534,7 @@ down. Close to Tobi.]
 
 TOBI:     ...
           [▼]
-          ...heh.
+          ...Spastis.
 
 MICHEL:   yeah.
 
@@ -536,15 +545,16 @@ MICHEL:   yeah.
 
 **Notes on this draft:**
 - **Cold-open structure:** scene begins inside the bar, player follows Tobi out, camera pans up the stairs to reveal him sitting alone, player walks Michel up to him. The player physically performs the *noticing* and the *following*. No exposition needed — by the time they sit down together, the player has already committed to being there with Tobi.
-- **No interrogation.** Tobi tells his truth once, in one breath. Michel doesn't probe. No "this morning?" / "why didn't you say."
-- **Catcallers placed AFTER the narrator coda, not before.** The narrator declares the vow ("i'd move heaven and earth to protect you") — and within seconds, the world tests it. Michel doesn't fight; he just snaps back, in German, with the word that belongs to them. Declaration → test → action → recovery. The structure makes the narrator the *cause* of the protection the player just watched. This is also where **"spasti" transforms one last time**: from Tobi's silent judgment (Sc 1) → peer pressure (absent, Sc 2) → quiet affection (Sc 3) → shared shorthand (Sc 4) → SHIELD pointed outward (Sc 5). The word that started as a dismissal becomes a defense.
-- "HAH" / "GAY!" — two NPCs, two words, syncopated jock mockery. Period-accurate teen homophobia, dispatched in two text boxes so the snap that follows hits harder. (If this lands wrong on a re-read, easy to soften to "HAH / look at those two" — but the bluntness is also what makes Michel's snap meaningful.)
+- **Tobi doesn't say it out loud.** He just gives "..." and starts shaking. Michel reads it on his face. The player is left to infer what happened — and Tobi (the audience) doesn't need to be told what he already remembers. The narrator coda retroactively confirms the "all day" weight without a single explicit line of explanation. This is the strongest restraint in the whole ROM.
+- **Music continues through everything.** The Aachen club beat doesn't stop when they walk out — it just gets muffled by the door, and keeps playing through the silence, the hug, the narrator, the snap. The world keeps partying while Tobi's world has ended. That contrast is the gut-punch.
+- **Catcallers placed AFTER the narrator coda, not before.** The narrator declares the vow ("i'd move heaven and earth to protect you") — and within seconds, the world tests it. Michel doesn't fight; he just snaps back, in German, with the word that belongs to them. Declaration → test → action → recovery.
+- **NPCs leave fast, no parting words.** They turn and walk off. The scene doesn't waste oxygen on them.
+- **"spasti" spine of the scene:** Michel says "Halt's Maul du Spasti" pointing it outward as a shield. Tobi closes the scene with "...Spastis." — plural, German declension, *Tobi joining Michel in the protective stance*. The word is now their *shared* shield, not just Michel's. The arc through the whole ROM: dismissal → peer pressure (absent) → quiet affection → shared shorthand → Michel's outward shield → Tobi's plural echo confirming the alliance.
+- "HAH" / "GAY!" — two NPCs, two words, syncopated jock mockery. Period-accurate teen homophobia, dispatched in two text boxes so the snap that follows hits harder.
 - "Halt's Maul du Spasti" — the German switch is the *seriousness signal*. Michel doesn't snap in English. He goes home-language, which is the language he and Tobi share. The Aachen-Cologne contraction "Halt's" instead of "Halt dein" is dialect-accurate.
-- Tobi's "...heh." is the seed of recovery. The first crack of light. BWL in Scene 6 is where that recovery fully blooms.
-- The `- hug -` notification + tiny `♥` is intentionally Pokémon-shaped. It lets the moment have a *glyph* without being saccharine. (Alternative: no overlay at all, just sprites adjacent. Will test both in-engine.)
+- The `- hug -` notification + tiny `♥` is intentionally Pokémon-shaped. It lets the moment have a *glyph* without being saccharine.
 - "thanks." / "yeah." is the spoken bookend. Then long silence. Then the narrator lands.
-- **Narrator block at the end** — user's own words. Michel's thought arriving in the quiet after the words are done. This is the one moment in the scene the inside-voice surfaces, and it's why the rest of the scene can stay so spare.
-- This scene runs no music. Just the muffled bass implied in the captions. Returns to music in Scene 6.
+- **Narrator block** — user's own words. Michel's thought arriving in the quiet after the words are done. This is the one moment in the scene the inside-voice surfaces, and it's why the rest of the scene can stay so spare.
 
 **Scene 7 implications:**
 - The "all day" insight is *named here*, in Scene 5, in the user's own words. Scene 7 must NOT re-explain it. Scene 7 acts on it instead: Michel asks because Tobi is the person revealed in this scene, and has been ever since. No re-narrating the same moment.
@@ -869,8 +879,9 @@ Drafted with dialogue: Sc 1, 2, 3, 4, 5, 6, 7.
 - **TRAINS main motif** (Porcupine Tree) — GBC chiptune recreation. Debuts in Scene 3, reprises in Scene 7 under the ask, resolves on the title card. Music centerpiece of the ROM.
 - **WOW CLASSIC TAVERN THEME** — GBC chiptune recreation. BGM through Scene 2, diegetic to the WoW conversation. Instant guildie-recognition.
 - **LA CUCARACHA** — GBC chiptune. BGM through Scene 4 (La Cubanita bar). Cheesy on purpose — tourist-bar score.
+- **AACHEN BEAT** — generic four-on-the-floor club track, GBC chiptune. Plays through Scene 5 entirely: full volume inside the bar; muffled (filtered + lower-pitched + half-volume) the moment the door closes. Continues unbroken through the silence, the hug, the narrator coda, and the snap. The world doesn't stop partying while Tobi's has ended.
 - BWL scene (6) gets its own short combat-tense track or silence-with-SFX during the wipe; music returns after.
-- Other scenes: silence + ambient SFX (bass thump through Aachen door, BBQ crackle, etc.) unless a track earns its way in.
+- Other scenes: silence + ambient SFX (BBQ crackle, etc.) unless a track earns its way in.
 
 **Asset summary** (per-scene asset notes live in each scene's body; this is the rollup):
 | Scene | Reuse from `gfx/pokecrystal-src/` | Custom needed |
