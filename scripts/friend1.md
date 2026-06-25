@@ -808,10 +808,6 @@ NARRATOR: 20+ years, tobi.
           [▼]
           every year.
 
-TOBI:     ...
-          [▼]
-          ask it.
-
 MICHEL:   will you be my
           best man?
 
@@ -853,7 +849,7 @@ the title card.]
 - **No callbacks at the open.** Scene starts tight: "tobi." / "michel." A beat. Then the meta-collapse. Restraint over recap.
 - **"this whole game was a question."** One sentence collapses the entire ROM. Doesn't recap a single scene; just names what the player has been doing for the last 8 minutes.
 - **Storyteller narrator block** between the meta-collapse and the ask: names the *years*, the *through-things*, and the *direction* (deeper, stronger, every year). Doesn't list specific scenes — that would be recap. Names the *trajectory* the player has just walked through. The TRAINS motif plays under it, doing the emotional work in parallel.
-- **"ask it."** Tobi giving Michel permission. The answer is already given before the question is asked — and both of them know it.
+- **No "ask it" permission line.** Tobi doesn't speak between the narrator block and the ask — Michel just goes straight from "every year." into "will you be my best man?" The narrator carries the entire bridge.
 - **[Yes] / [Heil Yes].** Two yeses. The German pun on "Hell yes" lands in their shared vocabulary. Either choice leads to the same response — there is no "no" branch, because there never was.
 - **BEST MAN BADGE.** Pure Pokémon item-get nostalgia. The fanfare, the floating item, the all-caps received-item line. Period-correct. Could even reuse the actual Crystal `♪ ITEM GET ♪` jingle if we can rip the macro.
 - **Tobi's closing "spasti. of course."** The word's final use. Quiet again, like Scene 3. Means "yes, you idiot, of course it's yes."
