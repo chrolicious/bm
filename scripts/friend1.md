@@ -82,7 +82,7 @@ TOBI:     ugh
 **Notes on this draft:**
 - All Tobi, no narrator confession. The "repeat year" backstory is omitted from the scene entirely — Tobi's mocking carries the setup without spelling it out.
 - "ugh / look at this nerd / front row AGAIN?" is the actual cadence of a 16-year-old slumped at the back. Light, dismissive, fun.
-- The Meerbusch dress-shirt mystery still plants here (Tobi wonders why the shirt) — pays off in Scene 7 as a *comedy callback*. (Conzi was high-school, NOT the bride. The payoff is the joke of finally being told the answer 20 years later, not a romantic reveal.)
+- The Meerbusch dress-shirt detail is pure character flavor — no payoff in Scene 7 (we cut it; was making the moment bigger than it needed to be). Tobi just remembers it as "this weird kid in a dress shirt"; the player gets the same impression.
 - "Spasti." is still the closer, but now it's a teen mutter, not a Shakespearean pronouncement.
 
 ---
@@ -779,32 +779,10 @@ MICHEL:   tobi.
 TOBI:     ...
           [▼]
           michel.
-          [▼]
-          ...what's with
-          the dress shirt.
 
-[A beat. Michel-sprite
-looks down at his shirt.]
+[A beat. The BBQ smokes.]
 
-MICHEL:   ...
-          [▼]
-          Conzi.
-          [▼]
-          in Meerbusch.
-
-TOBI:     ohhhhh
-
-MICHEL:   yeah.
-
-TOBI:     SPASTI.
-
-[Tobi-sprite laughs.
-A long beat. The laugh
-settles. The BBQ smokes.]
-
-MICHEL:   tobi.
-          [▼]
-          this whole game
+MICHEL:   this whole game
           was a question.
 
 [Music: TRAINS main motif
@@ -812,6 +790,23 @@ returns. Quiet. Same wave
 channel as Scene 3. Carries
 through the rest of the
 scene.]
+
+NARRATOR: 20+ years, tobi.
+          [▼]
+          everything we've
+          been through.
+          [▼]
+          every fight.
+          every laugh.
+          every loss.
+          [▼]
+          and somehow it
+          just kept getting
+          deeper.
+          [▼]
+          stronger.
+          [▼]
+          every year.
 
 TOBI:     ...
           [▼]
@@ -855,8 +850,9 @@ the title card.]
 (The title-card sigil = the recipient's WoW handle. Tobi's ROM ends on "Ozora." BramS's ROM ends on "Freak0r." Each man's own name as the closing chord.)
 
 **Notes on this draft:**
-- **Opens with the dress-shirt callback.** 20 years of waiting for an answer, paid off in three lines. Tobi asks before Michel can even begin. The "SPASTI." in all caps is the comedic eruption — its loudest, lightest use yet. Word's arc across the whole ROM: silent judgment → peer pressure (absent) → quiet affection → shared shorthand → outward shield → comedic eruption → quiet "of course." Each appearance lands differently.
+- **No callbacks at the open.** Scene starts tight: "tobi." / "michel." A beat. Then the meta-collapse. Restraint over recap.
 - **"this whole game was a question."** One sentence collapses the entire ROM. Doesn't recap a single scene; just names what the player has been doing for the last 8 minutes.
+- **Storyteller narrator block** between the meta-collapse and the ask: names the *years*, the *through-things*, and the *direction* (deeper, stronger, every year). Doesn't list specific scenes — that would be recap. Names the *trajectory* the player has just walked through. The TRAINS motif plays under it, doing the emotional work in parallel.
 - **"ask it."** Tobi giving Michel permission. The answer is already given before the question is asked — and both of them know it.
 - **[Yes] / [Heil Yes].** Two yeses. The German pun on "Hell yes" lands in their shared vocabulary. Either choice leads to the same response — there is no "no" branch, because there never was.
 - **BEST MAN BADGE.** Pure Pokémon item-get nostalgia. The fanfare, the floating item, the all-caps received-item line. Period-correct. Could even reuse the actual Crystal `♪ ITEM GET ♪` jingle if we can rip the macro.
