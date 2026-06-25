@@ -1,6 +1,6 @@
 # Friend 1 — Tobi (Tobias)
 
-Status: all 7 scenes drafted with dialogue. Awaiting engine integration + asset finalization. WoW handle: **Ozora**.
+Status: **finalized** — all 7 scenes drafted, polish pass complete, ready for engine integration + asset finalization. WoW handle: **Ozora**.
 
 ## Premise
 
