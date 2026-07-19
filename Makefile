@@ -3,7 +3,15 @@
 # Clean with: make clean
 
 GBDK    := tools/gbdk
-LCC     := $(GBDK)/bin/lcc
+
+# Windows GBDK ships lcc.exe; macOS/Linux ship bare lcc. Auto-detect,
+# and allow override:  make LCC=path/to/lcc
+ifeq ($(OS),Windows_NT)
+LCC     ?= $(GBDK)/bin/lcc.exe
+else
+LCC     ?= $(GBDK)/bin/lcc
+endif
+
 ROM     := build/bm.gbc
 
 SRCS    := $(wildcard src/*.c)
