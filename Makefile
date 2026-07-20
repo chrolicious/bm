@@ -14,8 +14,8 @@ endif
 
 ROM     := build/bm.gbc
 
-SRCS    := $(wildcard src/*.c)
-OBJS    := $(SRCS:src/%.c=build/%.o)
+SRCS    := $(wildcard src/*.c) $(wildcard src/bg/scene_*.c)
+OBJS    := $(patsubst src/%.c,build/%.o,$(SRCS))
 
 # -Wa-l: assembly listing; -Wl-m: linker map; -Wm-yc: GBC-only; -Wm-yt0x1B: MBC5+RAM+battery
 LCCFLAGS := -Wa-l -Wl-m -Wl-j -Wm-yc -Wm-yt0x1B -Wm-yoA -Wm-yn"BESTMEN"
@@ -26,6 +26,10 @@ build:
 	@mkdir -p build
 
 build/%.o: src/%.c | build
+	$(LCC) $(LCCFLAGS) -c -o $@ $<
+
+build/bg/%.o: src/bg/%.c | build
+	@mkdir -p build/bg
 	$(LCC) $(LCCFLAGS) -c -o $@ $<
 
 $(ROM): $(OBJS) | build

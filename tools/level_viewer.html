@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GBC Level Viewer</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: monospace; background: #1a1a1a; color: #ccc; display: flex; flex-direction: column; height: 100vh; }
+#toolbar { padding: 8px 12px; background: #222; border-bottom: 1px solid #444; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+#toolbar h1 { font-size: 14px; color: #fff; }
+button { background: #3a3a3a; border: 1px solid #555; color: #ccc; padding: 4px 10px; cursor: pointer; font-family: monospace; font-size: 12px; }
+button:hover { background: #4a4a4a; }
+button.primary { background: #2a5a2a; border-color: #4a9a4a; color: #8f8; }
+button.primary:hover { background: #3a7a3a; }
+#main { display: flex; flex: 1; overflow: hidden; }
+#left { width: 340px; flex-shrink: 0; display: flex; flex-direction: column; border-right: 1px solid #444; overflow: hidden; }
+#map-panel { padding: 8px; flex-shrink: 0; }
+#map-panel h2 { font-size: 11px; color: #888; margin-bottom: 6px; }
+#map-canvas { image-rendering: pixelated; cursor: crosshair; display: block; }
+#mappings { flex: 1; overflow-y: auto; padding: 8px; }
+#mappings h2 { font-size: 11px; color: #888; margin-bottom: 6px; }
+.mapping-row { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; font-size: 11px; }
+.mapping-row label { color: #aaa; flex-shrink: 0; width: 16px; }
+.mapping-row span.id { color: #666; width: 100px; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; font-size: 10px; }
+.mapping-row select { background: #2a2a2a; border: 1px solid #444; color: #ccc; font-family: monospace; font-size: 11px; flex: 1; padding: 2px; }
+.mapping-row .status { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.status.confirmed { background: #4a9a4a; }
+.status.greedy { background: #9a7a2a; }
+#right { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+#preview-panel { padding: 8px; flex-shrink: 0; display: flex; gap: 12px; align-items: flex-start; }
+#preview-panel h2 { font-size: 11px; color: #888; margin-bottom: 6px; }
+#preview-wrap { flex-shrink: 0; }
+#preview-canvas { image-rendering: pixelated; display: block; border: 1px solid #444; }
+#info-panel { flex: 1; padding: 8px; }
+#cell-info { font-size: 11px; color: #aaa; line-height: 1.8; }
+#cell-info .hi { color: #fff; }
+#tilesets-panel { flex: 1; overflow-y: auto; padding: 8px; border-top: 1px solid #444; }
+#tilesets-panel h2 { font-size: 11px; color: #888; margin-bottom: 6px; }
+.ts-block { margin-bottom: 12px; }
+.ts-block h3 { font-size: 11px; color: #aaa; margin-bottom: 4px; }
+.ts-block canvas { image-rendering: pixelated; display: block; border: 1px solid #333; cursor: crosshair; }
+#dropzone { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 12px; }
+#dropzone p { color: #666; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <h1>GBC Level Viewer</h1>
+  <input type="file" id="file-input" accept=".json" style="display:none">
+  <button onclick="document.getElementById('file-input').click()">Load level.json</button>
+  <button class="primary" id="btn-export" onclick="exportPng()" style="display:none">Export 160×144 PNG</button>
+  <button id="btn-gbpal" onclick="toggleGbpal()" style="display:none">GBC palette: ON</button>
+  <span id="tile-count" style="font-size:11px;color:#888;"></span>
+</div>
+
+<div id="main">
+  <div id="dropzone">
+    <p>Load a TileMap Studio level.json to begin</p>
+  </div>
+</div>
+
+<script>
+let level = null;
+let tsImages = [];
+let idToTs = {};      // numeric id -> tileset index
+let idBounds = {};    // numeric id -> {maxX, maxY}
+let gbpal = true;
+
+const LEVELS = [255, 170, 85, 0];
+function snapGray(v) { return LEVELS.reduce((a, b) => Math.abs(b - v) < Math.abs(a - v) ? b : a); }
+
+function toGbpal(imageData) {
+  const d = imageData.data;
+  for (let i = 0; i < d.length; i += 4) {
+    const gray = Math.round(0.299 * d[i] + 0.587 * d[i+1] + 0.114 * d[i+2]);
+    const snapped = snapGray(gray);
+    d[i] = d[i+1] = d[i+2] = snapped;
+  }
+  return imageData;
+}
+
+function toggleGbpal() {
+  gbpal = !gbpal;
+  document.getElementById('btn-gbpal').textContent = 'GBC palette: ' + (gbpal ? 'ON' : 'OFF');
+  if (level) renderPreview();
+}
+
+document.getElementById('file-input').addEventListener('change', e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const r = new FileReader();
+  r.onload = ev => loadLevel(JSON.parse(ev.target.result));
+  r.readAsText(f);
+});
+
+async function loadLevel(data) {
+  level = data;
+  tsImages = [];
+
+  // Decode all tileset images
+  for (const ts of level.tilesets) {
+    const img = await loadImg(ts.data);
+    tsImages.push(img);
+  }
+
+  // Compute bounds per numeric id
+  idBounds = {};
+  const bgLayer = level.layers.find(l => l.name === 'Background');
+  for (const row of bgLayer.data) {
+    for (const cell of row) {
+      if (typeof cell !== 'object' || !cell) continue;
+      const tid = cell.tilesetId;
+      if (!idBounds[tid]) idBounds[tid] = { maxX: 0, maxY: 0 };
+      idBounds[tid].maxX = Math.max(idBounds[tid].maxX, cell.tileX);
+      idBounds[tid].maxY = Math.max(idBounds[tid].maxY, cell.tileY);
+    }
+  }
+
+  // Initial greedy mapping
+  idToTs = {};
+  const assigned = new Set();
+  for (const tid of Object.keys(idBounds).map(Number).sort((a,b)=>a-b)) {
+    const { maxX, maxY } = idBounds[tid];
+    for (let i = 0; i < level.tilesets.length; i++) {
+      const ts = level.tilesets[i];
+      if (!assigned.has(i) && ts.cols > maxX && ts.rows > maxY) {
+        assigned.add(i);
+        idToTs[tid] = i;
+        break;
+      }
+    }
+  }
+
+  buildUI();
+}
+
+function loadImg(dataUrl) {
+  return new Promise(res => {
+    const img = new Image();
+    img.onload = () => {
+      const c = document.createElement('canvas');
+      c.width = img.width; c.height = img.height;
+      c.getContext('2d').drawImage(img, 0, 0);
+      res(c);
+    };
+    img.src = dataUrl;
+  });
+}
+
+function buildUI() {
+  document.getElementById('dropzone').style.display = 'none';
+  document.getElementById('btn-export').style.display = '';
+  document.getElementById('btn-gbpal').style.display = '';
+
+  const main = document.getElementById('main');
+  main.innerHTML = `
+    <div id="left">
+      <div id="map-panel">
+        <h2>Map (click cell for info)</h2>
+        <canvas id="map-canvas"></canvas>
+      </div>
+      <div id="mappings">
+        <h2>ID → Tileset Mappings</h2>
+        <div id="mapping-rows"></div>
+      </div>
+    </div>
+    <div id="right">
+      <div id="preview-panel">
+        <div id="preview-wrap">
+          <h2>160×144 Preview</h2>
+          <canvas id="preview-canvas" width="320" height="288"></canvas>
+        </div>
+        <div id="info-panel">
+          <h2>Selected Cell</h2>
+          <div id="cell-info">Click a map cell to inspect it.</div>
+        </div>
+      </div>
+      <div id="tilesets-panel">
+        <h2>Tilesets (click tile to copy coords)</h2>
+        <div id="ts-blocks"></div>
+      </div>
+    </div>`;
+
+  buildMappingRows();
+  renderMapCanvas();
+  renderPreview();
+  buildTilesetBlocks();
+}
+
+function buildMappingRows() {
+  const container = document.getElementById('mapping-rows');
+  container.innerHTML = '';
+  const tids = Object.keys(idBounds).map(Number).sort((a,b)=>a-b);
+  tids.forEach((tid, idx) => {
+    const row = document.createElement('div');
+    row.className = 'mapping-row';
+
+    const dot = document.createElement('div');
+    dot.className = 'status greedy';
+    dot.id = 'dot-' + tid;
+
+    const lbl = document.createElement('label');
+    lbl.textContent = (idx + 1);
+
+    const idSpan = document.createElement('span');
+    idSpan.className = 'id';
+    idSpan.title = String(tid);
+    idSpan.textContent = '…' + String(tid).slice(-6);
+
+    const sel = document.createElement('select');
+    sel.id = 'sel-' + tid;
+    level.tilesets.forEach((ts, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = '[' + i + '] ' + ts.name;
+      if (idToTs[tid] === i) opt.selected = true;
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', () => {
+      idToTs[tid] = parseInt(sel.value);
+      renderPreview();
+      renderMapCanvas();
+    });
+
+    const lockBtn = document.createElement('button');
+    lockBtn.textContent = '🔒';
+    lockBtn.title = 'Mark as confirmed';
+    lockBtn.style.padding = '1px 4px';
+    lockBtn.style.fontSize = '10px';
+    lockBtn.onclick = () => {
+      dot.className = 'status confirmed';
+    };
+
+    row.append(dot, lbl, idSpan, sel, lockBtn);
+    container.appendChild(row);
+  });
+}
+
+const MAP_SCALE = 3;
+
+function renderMapCanvas() {
+  const bgLayer = level.layers.find(l => l.name === 'Background');
+  const W = level.width, H = level.height;
+  const c = document.getElementById('map-canvas');
+  if (!c) return;
+  c.width = W * MAP_SCALE;
+  c.height = H * MAP_SCALE;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, c.width, c.height);
+
+  const tids = Object.keys(idBounds).map(Number).sort((a,b)=>a-b);
+  const colors = ['#f88','#8f8','#88f','#ff8','#f8f','#8ff','#fa8','#af8','#8af','#f8a'];
+
+  bgLayer.data.forEach((row, ry) => {
+    row.forEach((cell, rx) => {
+      if (!cell || typeof cell !== 'object') return;
+      const tidIdx = tids.indexOf(cell.tilesetId);
+      ctx.fillStyle = colors[tidIdx % colors.length] + '88';
+      ctx.fillRect(rx * MAP_SCALE, ry * MAP_SCALE, MAP_SCALE, MAP_SCALE);
+    });
+  });
+
+  // Grid
+  ctx.strokeStyle = '#33333388';
+  ctx.lineWidth = 0.5;
+  for (let x = 0; x <= W; x++) { ctx.beginPath(); ctx.moveTo(x*MAP_SCALE,0); ctx.lineTo(x*MAP_SCALE,H*MAP_SCALE); ctx.stroke(); }
+  for (let y = 0; y <= H; y++) { ctx.beginPath(); ctx.moveTo(0,y*MAP_SCALE); ctx.lineTo(W*MAP_SCALE,y*MAP_SCALE); ctx.stroke(); }
+
+  c.onclick = e => {
+    const rect = c.getBoundingClientRect();
+    const rx = Math.floor((e.clientX - rect.left) / MAP_SCALE);
+    const ry = Math.floor((e.clientY - rect.top) / MAP_SCALE);
+    const cell = bgLayer.data[ry]?.[rx];
+    if (!cell || typeof cell !== 'object') {
+      document.getElementById('cell-info').innerHTML = 'Empty cell at (' + rx + ', ' + ry + ')';
+      return;
+    }
+    const tsIdx = idToTs[cell.tilesetId] ?? '?';
+    const tsName = level.tilesets[tsIdx]?.name ?? 'unknown';
+    const tidIdx = tids.indexOf(cell.tilesetId) + 1;
+    document.getElementById('cell-info').innerHTML =
+      'Map cell: <span class="hi">(' + rx + ', ' + ry + ')</span><br>' +
+      'Tileset ID: <span class="hi">…' + String(cell.tilesetId).slice(-6) + '</span> (mapping #' + tidIdx + ')<br>' +
+      'Tile: <span class="hi">(' + cell.tileX + ', ' + cell.tileY + ')</span><br>' +
+      'Assigned to: <span class="hi">[' + tsIdx + '] ' + tsName + '</span><br>' +
+      '<br>Scroll to the tileset below to find this tile.';
+    // Highlight the tile in the tileset canvas
+    highlightTile(tsIdx, cell.tileX, cell.tileY);
+  };
+}
+
+function highlightTile(tsIdx, tx, ty) {
+  const el = document.getElementById('ts-canvas-' + tsIdx);
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  el._highlight = { tx, ty };
+  drawTsCanvas(tsIdx);
+}
+
+function renderPreview() {
+  const bgLayer = level.layers.find(l => l.name === 'Background');
+  const OUT = 8;
+  const W = level.width, H = level.height;
+  const c = document.getElementById('preview-canvas');
+  if (!c) return;
+  c.width = W * OUT * 2; c.height = H * OUT * 2; // 2x for visibility
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, c.width, c.height);
+
+  bgLayer.data.forEach((row, ry) => {
+    row.forEach((cell, rx) => {
+      if (!cell || typeof cell !== 'object') return;
+      const tsIdx = idToTs[cell.tilesetId];
+      if (tsIdx == null) return;
+      const tsImg = tsImages[tsIdx];
+      const ts = level.tilesets[tsIdx];
+      const actualPx = tsImg.width / ts.cols;
+      const sx = cell.tileX * actualPx;
+      const sy = cell.tileY * actualPx;
+      ctx.drawImage(tsImg, sx, sy, actualPx, actualPx, rx * OUT * 2, ry * OUT * 2, OUT * 2, OUT * 2);
+    });
+  });
+
+  if (gbpal) {
+    const imgData = ctx.getImageData(0, 0, c.width, c.height);
+    ctx.putImageData(toGbpal(imgData), 0, 0);
+  }
+
+  // tile count estimate
+  const offscreen = document.createElement('canvas');
+  offscreen.width = W * OUT; offscreen.height = H * OUT;
+  const octx = offscreen.getContext('2d');
+  octx.fillStyle = '#fff';
+  octx.fillRect(0, 0, offscreen.width, offscreen.height);
+  bgLayer.data.forEach((row, ry) => {
+    row.forEach((cell, rx) => {
+      if (!cell || typeof cell !== 'object') return;
+      const tsIdx = idToTs[cell.tilesetId];
+      if (tsIdx == null) return;
+      const tsImg = tsImages[tsIdx];
+      const ts = level.tilesets[tsIdx];
+      const actualPx = tsImg.width / ts.cols;
+      octx.drawImage(tsImg, cell.tileX*actualPx, cell.tileY*actualPx, actualPx, actualPx, rx*OUT, ry*OUT, OUT, OUT);
+    });
+  });
+  if (gbpal) {
+    const imgData = octx.getImageData(0, 0, offscreen.width, offscreen.height);
+    octx.putImageData(toGbpal(imgData), 0, 0);
+  }
+  // count unique 8x8 tiles
+  const tileHashes = new Set();
+  for (let ty = 0; ty < H; ty++) {
+    for (let tx = 0; tx < W; tx++) {
+      const d = octx.getImageData(tx*OUT, ty*OUT, OUT, OUT).data;
+      tileHashes.add(Array.from(d).join(','));
+    }
+  }
+  document.getElementById('tile-count').textContent = tileHashes.size + ' unique tiles (budget: 152)';
+  document.getElementById('tile-count').style.color = tileHashes.size > 152 ? '#f88' : '#8f8';
+
+  // store offscreen for export
+  window._exportCanvas = offscreen;
+}
+
+function buildTilesetBlocks() {
+  const container = document.getElementById('ts-blocks');
+  container.innerHTML = '';
+  level.tilesets.forEach((ts, i) => {
+    const block = document.createElement('div');
+    block.className = 'ts-block';
+    const h3 = document.createElement('h3');
+    h3.textContent = '[' + i + '] ' + ts.name + '  (' + ts.cols + '×' + ts.rows + ')';
+    block.appendChild(h3);
+
+    const c = document.createElement('canvas');
+    c.id = 'ts-canvas-' + i;
+    const SCALE = 2;
+    const img = tsImages[i];
+    const actualPx = img.width / ts.cols;
+    c.width = img.width * SCALE;
+    c.height = img.height * SCALE;
+    c.style.width = c.width + 'px';
+    c.style.height = c.height + 'px';
+    c._tsIdx = i;
+    c._highlight = null;
+
+    c.onclick = e => {
+      const rect = c.getBoundingClientRect();
+      const tx = Math.floor((e.clientX - rect.left) / (actualPx * SCALE));
+      const ty = Math.floor((e.clientY - rect.top) / (actualPx * SCALE));
+      document.getElementById('cell-info').innerHTML += '<br>Clicked tileset tile: <span class="hi">(' + tx + ', ' + ty + ')</span>';
+    };
+
+    block.appendChild(c);
+    container.appendChild(block);
+
+    drawTsCanvas(i);
+  });
+}
+
+function drawTsCanvas(i) {
+  const ts = level.tilesets[i];
+  const img = tsImages[i];
+  const actualPx = img.width / ts.cols;
+  const SCALE = 2;
+  const c = document.getElementById('ts-canvas-' + i);
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0, 0, c.width, c.height);
+  ctx.drawImage(img, 0, 0, img.width * SCALE, img.height * SCALE);
+
+  // Grid
+  ctx.strokeStyle = '#44444488';
+  ctx.lineWidth = 0.5;
+  for (let x = 0; x <= ts.cols; x++) { ctx.beginPath(); ctx.moveTo(x*actualPx*SCALE,0); ctx.lineTo(x*actualPx*SCALE,c.height); ctx.stroke(); }
+  for (let y = 0; y <= ts.rows; y++) { ctx.beginPath(); ctx.moveTo(0,y*actualPx*SCALE); ctx.lineTo(c.width,y*actualPx*SCALE); ctx.stroke(); }
+
+  // Highlight
+  if (c._highlight) {
+    const { tx, ty } = c._highlight;
+    ctx.strokeStyle = '#ff0';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(tx*actualPx*SCALE+1, ty*actualPx*SCALE+1, actualPx*SCALE-2, actualPx*SCALE-2);
+  }
+}
+
+function exportPng() {
+  if (!window._exportCanvas) return;
+  window._exportCanvas.toBlob(blob => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'scene_export.png';
+    a.click();
+  });
+}
+</script>
+</body>
+</html>
