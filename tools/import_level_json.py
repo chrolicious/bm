@@ -15,8 +15,45 @@ Output: gfx/scenes/<scene_name>.png and src/bg/scene_<scene_name>.c
 import json, sys, os, base64, io, re, subprocess
 from PIL import Image
 
-ROOT  = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
-TOOLS = os.path.join(ROOT, "tools", "gbdk", "bin")
+ROOT    = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
+TOOLS   = os.path.join(ROOT, "tools", "gbdk", "bin")
+SPRITES = os.path.join(ROOT, "gfx", "pokecrystal-src", "gfx", "sprites")
+
+FACE_DOWN = 0
+FACE_UP   = 2
+FACE_SIDE = 4
+
+def _snap(v):
+    levels = [255, 170, 85, 0]
+    return min(levels, key=lambda l: abs(v - l))
+
+def _to_gbpal(img):
+    grey = img.convert("L")
+    px = grey.load()
+    for y in range(grey.height):
+        for x in range(grey.width):
+            px[x, y] = _snap(px[x, y])
+    return grey.convert("RGB")
+
+def place_sprite(canvas, name, col, row, frame=FACE_DOWN, flip=False):
+    """Paste a 16x16 overworld sprite at tile grid (col, row); white = transparent."""
+    img = Image.open(os.path.join(SPRITES, f"{name}.png")).convert("RGB")
+    spr = img.crop((0, frame * 16, 16, frame * 16 + 16))
+    if flip:
+        spr = spr.transpose(Image.FLIP_LEFT_RIGHT)
+    spr = _to_gbpal(spr)
+    mask = spr.convert("L").point(lambda p: 0 if p >= 250 else 255)
+    canvas.paste(spr, (col * 8, row * 8), mask)
+
+# Sprites to place per scene name
+SCENE_SPRITES = {
+    "schoolyard": [
+        ("chris",     10,  7, FACE_SIDE, True),   # Michel facing right (into group)
+        ("kris",      12,  7, FACE_SIDE, False),   # Tobi facing left (into group)
+        ("youngster", 11,  9, FACE_UP,   False),   # student in front, facing up toward group
+        ("lass",      13,  9, FACE_SIDE, False),   # student beside, facing left
+    ],
+}
 
 _LEVELS = [255, 170, 85, 0]
 
@@ -162,6 +199,11 @@ def main():
     print(f"Loaded {json_path}  ({level['width']}x{level['height']} tiles, tileSize={level['tileSize']})")
 
     canvas = render(level)
+
+    # Place sprites before palette quantization
+    for entry in SCENE_SPRITES.get(scene_name, []):
+        place_sprite(canvas, *entry)
+
     canvas = to_gbpal(canvas)
 
     out_png = os.path.join(ROOT, "gfx", "scenes", f"{scene_name}.png")
