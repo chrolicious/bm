@@ -13,7 +13,7 @@
 #define scene_bwl_TILE_H 8
 #define scene_bwl_WIDTH 160
 #define scene_bwl_HEIGHT 144
-#define scene_bwl_TILE_COUNT 46
+#define scene_bwl_TILE_COUNT 61
 #define scene_bwl_PALETTE_COUNT 1
 #define scene_bwl_COLORS_PER_PALETTE 4
 #define scene_bwl_TOTAL_COLORS 4
@@ -28,6 +28,6 @@ extern const unsigned char scene_bwl_map_attributes[360];
 BANKREF_EXTERN(scene_bwl)
 
 extern const palette_color_t scene_bwl_palettes[4];
-extern const uint8_t scene_bwl_tiles[736];
+extern const uint8_t scene_bwl_tiles[976];
 
 #endif

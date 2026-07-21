@@ -13,7 +13,7 @@
 #define scene_aachen_TILE_H 8
 #define scene_aachen_WIDTH 160
 #define scene_aachen_HEIGHT 144
-#define scene_aachen_TILE_COUNT 78
+#define scene_aachen_TILE_COUNT 100
 #define scene_aachen_PALETTE_COUNT 1
 #define scene_aachen_COLORS_PER_PALETTE 4
 #define scene_aachen_TOTAL_COLORS 4
@@ -28,6 +28,6 @@ extern const unsigned char scene_aachen_map_attributes[360];
 BANKREF_EXTERN(scene_aachen)
 
 extern const palette_color_t scene_aachen_palettes[4];
-extern const uint8_t scene_aachen_tiles[1248];
+extern const uint8_t scene_aachen_tiles[1600];
 
 #endif

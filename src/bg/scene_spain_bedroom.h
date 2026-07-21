@@ -13,7 +13,7 @@
 #define scene_spain_bedroom_TILE_H 8
 #define scene_spain_bedroom_WIDTH 160
 #define scene_spain_bedroom_HEIGHT 144
-#define scene_spain_bedroom_TILE_COUNT 62
+#define scene_spain_bedroom_TILE_COUNT 69
 #define scene_spain_bedroom_PALETTE_COUNT 1
 #define scene_spain_bedroom_COLORS_PER_PALETTE 4
 #define scene_spain_bedroom_TOTAL_COLORS 4
@@ -28,6 +28,6 @@ extern const unsigned char scene_spain_bedroom_map_attributes[360];
 BANKREF_EXTERN(scene_spain_bedroom)
 
 extern const palette_color_t scene_spain_bedroom_palettes[4];
-extern const uint8_t scene_spain_bedroom_tiles[992];
+extern const uint8_t scene_spain_bedroom_tiles[1104];
 
 #endif

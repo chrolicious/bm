@@ -67,6 +67,11 @@ let idToTs = {};      // numeric id -> tileset index
 let idBounds = {};    // numeric id -> {maxX, maxY}
 let gbpal = true;
 
+function getActiveLayer() {
+  return level.layers.find(l => l.data.some(row => row.some(c => c && typeof c === 'object')))
+      || level.layers[0];
+}
+
 const LEVELS = [255, 170, 85, 0];
 function snapGray(v) { return LEVELS.reduce((a, b) => Math.abs(b - v) < Math.abs(a - v) ? b : a); }
 
@@ -106,7 +111,7 @@ async function loadLevel(data) {
 
   // Compute bounds per numeric id
   idBounds = {};
-  const bgLayer = level.layers.find(l => l.name === 'Background');
+  const bgLayer = getActiveLayer();
   for (const row of bgLayer.data) {
     for (const cell of row) {
       if (typeof cell !== 'object' || !cell) continue;
@@ -240,7 +245,7 @@ function buildMappingRows() {
 const MAP_SCALE = 3;
 
 function renderMapCanvas() {
-  const bgLayer = level.layers.find(l => l.name === 'Background');
+  const bgLayer = getActiveLayer();
   const W = level.width, H = level.height;
   const c = document.getElementById('map-canvas');
   if (!c) return;
@@ -300,7 +305,7 @@ function highlightTile(tsIdx, tx, ty) {
 }
 
 function renderPreview() {
-  const bgLayer = level.layers.find(l => l.name === 'Background');
+  const bgLayer = getActiveLayer();
   const OUT = 8;
   const W = level.width, H = level.height;
   const c = document.getElementById('preview-canvas');

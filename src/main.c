@@ -612,6 +612,57 @@ static void set_scene_bg(const uint8_t *tiles, uint8_t ntiles,
     SHOW_BKG;
 }
 
+/* ── Title screen ─────────────────────────────────────────── */
+
+/* Title uses tile_origin=0, occupying VRAM slots 0..SCENE_TITLE_NTILES-1.
+   This temporarily overwrites font tiles (0-93) and border tiles (95-103).
+   They are restored before returning via font_load + set_bkg_data.           */
+static uint8_t title_tile_ram[SCENE_TITLE_NTILES * 16];
+
+static void title_screen(void) {
+    uint8_t  y;
+    uint16_t i;
+    uint8_t  joy, prev_joy;
+
+    HIDE_WIN;
+
+    SWITCH_ROM(3);
+    for (i = 0u; i < (uint16_t)SCENE_TITLE_NTILES * 16u; ++i)
+        title_tile_ram[i] = scene_title_tiles[i];
+    for (i = 0u; i < 360u; ++i) scene_map_ram[i]   = scene_title_map[i];
+    for (i = 0u; i < 360u; ++i) scene_attrs_ram[i] = scene_title_map_attributes[i];
+    SWITCH_ROM(1);
+
+    set_bkg_data(0, SCENE_TITLE_NTILES, title_tile_ram);
+    VBK_REG = 1;
+    for (y = 0; y < 18; ++y)
+        set_bkg_tiles(0, y, 20, 1, scene_attrs_ram + (uint16_t)y * 20);
+    VBK_REG = 0;
+    for (y = 0; y < 18; ++y)
+        set_bkg_tiles(0, y, 20, 1, scene_map_ram + (uint16_t)y * 20);
+    SHOW_BKG;
+
+    prev_joy = joypad();
+    for (;;) {
+        wait_vbl_done();
+        joy = joypad();
+        if ((joy & (J_A | J_START)) && !(prev_joy & (J_A | J_START))) break;
+        prev_joy = joy;
+    }
+    while (joypad() & (J_A | J_START)) wait_vbl_done();
+
+    /* Restore font and border tiles overwritten by title image */
+    font_init();
+    font = font_load(font_ibm);
+    font_set(font);
+    set_bkg_data(95, 9, box_tiles);
+    /* Wipe leftover title tiles from VRAM slots 104-161 so they don't
+       bleed into the first scene before set_scene_bg overwrites them. */
+    for (i = 0u; i < 58u * 16u; ++i) title_tile_ram[i] = 0x00u;
+    set_bkg_data(104, 58, title_tile_ram);
+    tb_init();
+}
+
 /* ── Helpers ──────────────────────────────────────────────── */
 
 static void delay_frames(uint8_t n) { while (n--) wait_vbl_done(); }
@@ -927,5 +978,6 @@ void main(void) {
     }
     tb_init();
 
+    title_screen();
     debug_menu();
 }

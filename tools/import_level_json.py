@@ -20,7 +20,7 @@ TOOLS   = os.path.join(ROOT, "tools", "gbdk", "bin")
 SPRITES = os.path.join(ROOT, "gfx", "pokecrystal-src", "gfx", "sprites")
 
 FACE_DOWN = 0
-FACE_UP   = 2
+FACE_UP   = 1
 FACE_SIDE = 4
 
 def _snap(v):
@@ -97,7 +97,8 @@ def render(level):
     ts_images = [decode_tileset(ts) for ts in tilesets_raw]
 
     # Collect unique numeric tileset ids and their max tile coordinates
-    layer = next(l for l in level["layers"] if l["name"] == "Background")
+    layer = next((l for l in level["layers"] if l["name"] == "Background" and any(isinstance(c, dict) for row in l["data"] for c in row)),
+                 next(l for l in level["layers"] if any(isinstance(c, dict) for row in l["data"] for c in row)))
     id_bounds = {}
     for row in layer["data"]:
         for cell in row:

@@ -1,11 +1,17 @@
 #pragma once
 #include <stdint.h>
 
-/* classroom: 83 tiles */
-extern const uint8_t      scene_classroom_tiles[1328];
+/* title: 162 tiles (tile_origin=0, uses full VRAM 0-255) */
+extern const uint8_t      scene_title_tiles[2592];
+extern const unsigned char scene_title_map[360];
+extern const unsigned char scene_title_map_attributes[360];
+#define SCENE_TITLE_NTILES 162
+
+/* classroom: 43 tiles */
+extern const uint8_t      scene_classroom_tiles[688];
 extern const unsigned char scene_classroom_map[360];
 extern const unsigned char scene_classroom_map_attributes[360];
-#define SCENE_CLASSROOM_NTILES 83
+#define SCENE_CLASSROOM_NTILES 43
 
 /* schoolyard: 89 tiles */
 extern const uint8_t      scene_schoolyard_tiles[1424];
@@ -13,11 +19,11 @@ extern const unsigned char scene_schoolyard_map[360];
 extern const unsigned char scene_schoolyard_map_attributes[360];
 #define SCENE_SCHOOLYARD_NTILES 89
 
-/* bwl: 46 tiles */
-extern const uint8_t      scene_bwl_tiles[736];
+/* bwl: 61 tiles */
+extern const uint8_t      scene_bwl_tiles[976];
 extern const unsigned char scene_bwl_map[360];
 extern const unsigned char scene_bwl_map_attributes[360];
-#define SCENE_BWL_NTILES 46
+#define SCENE_BWL_NTILES 61
 
 /* living_room: 92 tiles */
 extern const uint8_t      scene_living_room_tiles[1472];

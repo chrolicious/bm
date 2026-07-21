@@ -13,7 +13,7 @@
 #define scene_living_room_TILE_H 8
 #define scene_living_room_WIDTH 160
 #define scene_living_room_HEIGHT 144
-#define scene_living_room_TILE_COUNT 92
+#define scene_living_room_TILE_COUNT 108
 #define scene_living_room_PALETTE_COUNT 1
 #define scene_living_room_COLORS_PER_PALETTE 4
 #define scene_living_room_TOTAL_COLORS 4
@@ -28,6 +28,6 @@ extern const unsigned char scene_living_room_map_attributes[360];
 BANKREF_EXTERN(scene_living_room)
 
 extern const palette_color_t scene_living_room_palettes[4];
-extern const uint8_t scene_living_room_tiles[1472];
+extern const uint8_t scene_living_room_tiles[1728];
 
 #endif

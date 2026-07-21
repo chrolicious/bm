@@ -13,7 +13,7 @@
 #define scene_ask_TILE_H 8
 #define scene_ask_WIDTH 160
 #define scene_ask_HEIGHT 144
-#define scene_ask_TILE_COUNT 61
+#define scene_ask_TILE_COUNT 69
 #define scene_ask_PALETTE_COUNT 1
 #define scene_ask_COLORS_PER_PALETTE 4
 #define scene_ask_TOTAL_COLORS 4
@@ -28,6 +28,6 @@ extern const unsigned char scene_ask_map_attributes[360];
 BANKREF_EXTERN(scene_ask)
 
 extern const palette_color_t scene_ask_palettes[4];
-extern const uint8_t scene_ask_tiles[976];
+extern const uint8_t scene_ask_tiles[1104];
 
 #endif

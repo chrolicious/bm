@@ -13,7 +13,7 @@
 #define scene_classroom_TILE_H 8
 #define scene_classroom_WIDTH 160
 #define scene_classroom_HEIGHT 144
-#define scene_classroom_TILE_COUNT 83
+#define scene_classroom_TILE_COUNT 43
 #define scene_classroom_PALETTE_COUNT 1
 #define scene_classroom_COLORS_PER_PALETTE 4
 #define scene_classroom_TOTAL_COLORS 4
@@ -28,6 +28,6 @@ extern const unsigned char scene_classroom_map_attributes[360];
 BANKREF_EXTERN(scene_classroom)
 
 extern const palette_color_t scene_classroom_palettes[4];
-extern const uint8_t scene_classroom_tiles[1328];
+extern const uint8_t scene_classroom_tiles[688];
 
 #endif

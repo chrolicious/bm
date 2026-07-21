@@ -13,7 +13,7 @@
 #define scene_schoolyard_TILE_H 8
 #define scene_schoolyard_WIDTH 160
 #define scene_schoolyard_HEIGHT 144
-#define scene_schoolyard_TILE_COUNT 58
+#define scene_schoolyard_TILE_COUNT 66
 #define scene_schoolyard_PALETTE_COUNT 1
 #define scene_schoolyard_COLORS_PER_PALETTE 4
 #define scene_schoolyard_TOTAL_COLORS 4
@@ -28,6 +28,6 @@ extern const unsigned char scene_schoolyard_map_attributes[360];
 BANKREF_EXTERN(scene_schoolyard)
 
 extern const palette_color_t scene_schoolyard_palettes[4];
-extern const uint8_t scene_schoolyard_tiles[928];
+extern const uint8_t scene_schoolyard_tiles[1056];
 
 #endif

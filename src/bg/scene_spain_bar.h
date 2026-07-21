@@ -13,7 +13,7 @@
 #define scene_spain_bar_TILE_H 8
 #define scene_spain_bar_WIDTH 160
 #define scene_spain_bar_HEIGHT 144
-#define scene_spain_bar_TILE_COUNT 78
+#define scene_spain_bar_TILE_COUNT 88
 #define scene_spain_bar_PALETTE_COUNT 1
 #define scene_spain_bar_COLORS_PER_PALETTE 4
 #define scene_spain_bar_TOTAL_COLORS 4
@@ -28,6 +28,6 @@ extern const unsigned char scene_spain_bar_map_attributes[360];
 BANKREF_EXTERN(scene_spain_bar)
 
 extern const palette_color_t scene_spain_bar_palettes[4];
-extern const uint8_t scene_spain_bar_tiles[1248];
+extern const uint8_t scene_spain_bar_tiles[1408];
 
 #endif
