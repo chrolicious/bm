@@ -25,23 +25,23 @@ extern const unsigned char scene_bwl_map[360];
 extern const unsigned char scene_bwl_map_attributes[360];
 #define SCENE_BWL_NTILES 61
 
-/* living_room: 92 tiles */
-extern const uint8_t      scene_living_room_tiles[1472];
+/* living_room: 59 tiles */
+extern const uint8_t      scene_living_room_tiles[944];
 extern const unsigned char scene_living_room_map[360];
 extern const unsigned char scene_living_room_map_attributes[360];
-#define SCENE_LIVING_ROOM_NTILES 92
+#define SCENE_LIVING_ROOM_NTILES 59
 
-/* spain_bar: 78 tiles */
-extern const uint8_t      scene_spain_bar_tiles[1248];
+/* spain_bar: 49 tiles */
+extern const uint8_t      scene_spain_bar_tiles[784];
 extern const unsigned char scene_spain_bar_map[360];
 extern const unsigned char scene_spain_bar_map_attributes[360];
-#define SCENE_SPAIN_BAR_NTILES 78
+#define SCENE_SPAIN_BAR_NTILES 49
 
-/* spain_bedroom: 62 tiles */
-extern const uint8_t      scene_spain_bedroom_tiles[992];
+/* spain_bedroom: 47 tiles */
+extern const uint8_t      scene_spain_bedroom_tiles[752];
 extern const unsigned char scene_spain_bedroom_map[360];
 extern const unsigned char scene_spain_bedroom_map_attributes[360];
-#define SCENE_SPAIN_BEDROOM_NTILES 62
+#define SCENE_SPAIN_BEDROOM_NTILES 47
 
 /* aachen: 78 tiles */
 extern const uint8_t      scene_aachen_tiles[1248];

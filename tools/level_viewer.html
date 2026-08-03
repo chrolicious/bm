@@ -252,7 +252,7 @@ function renderMapCanvas() {
   c.width = W * MAP_SCALE;
   c.height = H * MAP_SCALE;
   const ctx = c.getContext('2d');
-  ctx.fillStyle = '#fff';
+  ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, c.width, c.height);
 
   const tids = Object.keys(idBounds).map(Number).sort((a,b)=>a-b);
@@ -312,7 +312,7 @@ function renderPreview() {
   if (!c) return;
   c.width = W * OUT * 2; c.height = H * OUT * 2; // 2x for visibility
   const ctx = c.getContext('2d');
-  ctx.fillStyle = '#fff';
+  ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, c.width, c.height);
 
   bgLayer.data.forEach((row, ry) => {
@@ -338,7 +338,7 @@ function renderPreview() {
   const offscreen = document.createElement('canvas');
   offscreen.width = W * OUT; offscreen.height = H * OUT;
   const octx = offscreen.getContext('2d');
-  octx.fillStyle = '#fff';
+  octx.fillStyle = '#000';
   octx.fillRect(0, 0, offscreen.width, offscreen.height);
   bgLayer.data.forEach((row, ry) => {
     row.forEach((cell, rx) => {
