@@ -567,6 +567,22 @@ static void show_badge(void) {
     tb_clear_text();
 }
 
+/* ── White background ─────────────────────────────────────── */
+
+static void set_white_bg(void) {
+    uint8_t buf[20];
+    uint8_t az[20];
+    uint8_t x, y;
+    for (x = 0; x < 20; ++x) { buf[x] = BG_EMPTY; az[x] = 0; }
+    VBK_REG = 1;
+    for (y = 0; y < 18; ++y) set_bkg_tiles(0, y, 20, 1, az);
+    VBK_REG = 0;
+    for (y = 0; y < 18; ++y) set_bkg_tiles(0, y, 20, 1, buf);
+    portrait_scene_map   = 0;
+    portrait_scene_attrs = 0;
+    SHOW_BKG;
+}
+
 /* ── Background system ────────────────────────────────────── */
 
 /* RAM copies of current scene data — scene lives in ROM bank 2.
@@ -851,6 +867,8 @@ static void scene_6_aachen(void) {
     dialogue("TOBI", "...\nthanks.");
     dialogue_r("MICHEL", "yeah.");
     delay_frames(90);
+    set_white_bg();
+    portrait_hide();
     narrate("that night\nmoved me.");
     narrate("your strength --\nto have held\nthis in all day.");
     narrate("but it also moved\nme closer to you.");

@@ -43,14 +43,14 @@ extern const unsigned char scene_spain_bedroom_map[360];
 extern const unsigned char scene_spain_bedroom_map_attributes[360];
 #define SCENE_SPAIN_BEDROOM_NTILES 47
 
-/* aachen: 78 tiles */
-extern const uint8_t      scene_aachen_tiles[1248];
+/* aachen: 60 tiles */
+extern const uint8_t      scene_aachen_tiles[960];
 extern const unsigned char scene_aachen_map[360];
 extern const unsigned char scene_aachen_map_attributes[360];
-#define SCENE_AACHEN_NTILES 78
+#define SCENE_AACHEN_NTILES 60
 
-/* ask: 61 tiles */
-extern const uint8_t      scene_ask_tiles[976];
+/* ask: 59 tiles */
+extern const uint8_t      scene_ask_tiles[944];
 extern const unsigned char scene_ask_map[360];
 extern const unsigned char scene_ask_map_attributes[360];
-#define SCENE_ASK_NTILES 61
+#define SCENE_ASK_NTILES 59

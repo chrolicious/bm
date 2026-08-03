@@ -44,6 +44,29 @@ def place_sprite(canvas, name, col, row, frame=FACE_DOWN, flip=False):
 
 # col/row are in 8px tile units; sprites are 16x16px (2x2 tiles)
 SCENE_SPRITES = {
+    "ask": [
+        ("kris",  5, 7, FACE_SIDE, False),  # Tobi on left carpet, facing right
+        ("chris",12, 7, FACE_SIDE, True),   # Michel on right carpet, facing left
+    ],
+    "aachen": [
+        # DJ top-right
+        ("rocker",        16,  2, FACE_DOWN, False),
+        # crowd on dance floor - varied directions to look like dancing
+        ("lass",           4,  5, FACE_DOWN, False),
+        ("youngster",      7,  5, FACE_SIDE, False),
+        ("beauty",        11,  5, FACE_UP,   False),
+        ("cooltrainer_f", 14,  5, FACE_SIDE, True),
+        ("biker",          4,  9, FACE_SIDE, True),
+        ("kimono_girl",    8,  9, FACE_DOWN, False),
+        ("cooltrainer_m", 13,  9, FACE_UP,   False),
+        ("sailor",        16,  8, FACE_SIDE, False),
+        # Tobi and Michel south at stairs
+        ("kris",           9, 12, FACE_UP,   False),
+        ("chris",         11, 12, FACE_UP,   False),
+        # two random people top-right of stairs
+        ("youngster",     14, 10, FACE_DOWN, False),
+        ("lass",          16, 10, FACE_SIDE, True),
+    ],
     "living_room": [
         ("cooltrainer_m", 4,  5, FACE_UP,   False),  # BramT, left seat of couch
         ("biker",         8,  5, FACE_UP,   False),  # Benny, right seat of couch
