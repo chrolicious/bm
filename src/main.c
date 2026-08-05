@@ -18,10 +18,22 @@ static const palette_color_t bkg_pal[4] = {
 
 /* ── Sound ────────────────────────────────────────────────── */
 
+/* Triangle wave for Ch3 (32 nybbles = 16 bytes, hi-nybble first) */
+static const uint8_t wave_triangle[16] = {
+    0x01,0x23,0x45,0x67,0x89,0xAB,0xCD,0xEF,
+    0xFE,0xDC,0xBA,0x98,0x76,0x54,0x32,0x10
+};
+
 static void sound_init(void) {
+    uint8_t i;
     NR52_REG = 0x80; /* sound power on */
     NR50_REG = 0x77; /* max volume, both speakers */
     NR51_REG = 0xFF; /* all channels to both outputs */
+    /* Load triangle waveform into Ch3 Wave RAM */
+    NR30_REG = 0x00; /* disable Ch3 DAC to unlock Wave RAM */
+    for (i = 0; i < 16; i++)
+        ((volatile uint8_t *)0xFF30)[i] = wave_triangle[i];
+    NR30_REG = 0x80; /* re-enable Ch3 DAC */
 }
 
 /* Short blip for typewriter text — Channel 2, ~880 Hz, soft */
@@ -52,6 +64,184 @@ static void sfx_item_get(void) {
     NR24_REG = 0x80;
 }
 
+#include "music_data.h"
+
+
+/* Ch1 melody state */
+static const MNote *music_cur  = 0;
+static const MNote *music_end  = 0;
+static const MNote *music_loop = 0;
+static uint16_t     music_timer = 0;
+static uint8_t      music_on    = 0;
+
+/* Ch2 harmony state */
+static const MNote *music2_cur   = 0;
+static const MNote *music2_end   = 0;
+static const MNote *music2_loop  = 0;
+static uint16_t     music2_timer = 0;
+static uint8_t      music2_on    = 0;
+
+/* Ch3 wave/bass state */
+static const MNote *music3_cur   = 0;
+static const MNote *music3_end   = 0;
+static const MNote *music3_loop  = 0;
+static uint16_t     music3_timer = 0;
+static uint8_t      music3_on    = 0;
+
+/* Ch4 drum state */
+static const DNote *drum_cur   = 0;
+static const DNote *drum_end   = 0;
+static const DNote *drum_loop  = 0;
+static uint8_t      drum_timer  = 0;
+static uint8_t      drum_on     = 0;
+
+static void music_hw_trigger(void) {
+    if (music_cur->lo | music_cur->hi) {
+        NR11_REG = 0x80u;
+        NR12_REG = 0xF2u;  /* vol=15, decay, pace=2 */
+        NR13_REG = music_cur->lo;
+        NR14_REG = (uint8_t)(music_cur->hi | 0x80u);
+    }
+}
+
+static void music2_hw_trigger(void) {
+    if (music2_cur->lo | music2_cur->hi) {
+        NR21_REG = 0x80u;
+        NR22_REG = 0xF2u;
+        NR23_REG = music2_cur->lo;
+        NR24_REG = (uint8_t)(music2_cur->hi | 0x80u);
+    }
+}
+
+static void music3_hw_trigger(void) {
+    if (music3_cur->lo | music3_cur->hi) {
+        NR32_REG = 0x20u;
+        NR33_REG = music3_cur->lo;
+        NR34_REG = (uint8_t)(music3_cur->hi | 0x80u);
+    } else {
+        NR32_REG = 0u;  /* mute on rest */
+    }
+}
+
+static void drum_hw_trigger(void) {
+    if (drum_cur->env) {
+        NR41_REG = 0x3Fu;
+        NR42_REG = drum_cur->env;
+        NR43_REG = drum_cur->poly;
+        NR44_REG = 0x80u;
+    }
+}
+
+static void music_isr(void) {
+    uint8_t saved;
+    if (!music_on && !music2_on && !music3_on && !drum_on) return;
+    saved = CURRENT_BANK;
+    SWITCH_ROM(MUSIC_BANK);
+    if (music_on) {
+        ++music_timer;
+        if (music_timer >= music_cur->dur) {
+            music_timer = 0;
+            ++music_cur;
+            if (music_cur >= music_end) music_cur = music_loop;
+            music_hw_trigger();
+        }
+    }
+    if (music2_on) {
+        ++music2_timer;
+        if (music2_timer >= music2_cur->dur) {
+            music2_timer = 0;
+            ++music2_cur;
+            if (music2_cur >= music2_end) music2_cur = music2_loop;
+            music2_hw_trigger();
+        }
+    }
+    if (music3_on) {
+        ++music3_timer;
+        if (music3_timer >= music3_cur->dur) {
+            music3_timer = 0;
+            ++music3_cur;
+            if (music3_cur >= music3_end) music3_cur = music3_loop;
+            music3_hw_trigger();
+        }
+    }
+    if (drum_on) {
+        ++drum_timer;
+        if (drum_timer >= drum_cur->dur) {
+            drum_timer = 0;
+            ++drum_cur;
+            if (drum_cur >= drum_end) drum_cur = drum_loop;
+            drum_hw_trigger();
+        }
+    }
+    SWITCH_ROM(saved);
+}
+
+static void drum_stop(void) {
+    drum_on  = 0;
+    NR42_REG = 0x08u;
+    NR44_REG = 0x80u;
+}
+
+static void music_play(const MNote *seq, uint16_t len) {
+    uint8_t saved;
+    __critical {
+        music_cur   = seq;
+        music_end   = seq + len;
+        music_loop  = seq;
+        music_timer = 0;
+        music_on    = 1;
+        music2_on   = 0;
+        music3_on   = 0;
+    }
+    NR22_REG = 0x08u; NR24_REG = 0x80u;
+    NR32_REG = 0u;
+    drum_stop();
+    saved = CURRENT_BANK; SWITCH_ROM(MUSIC_BANK);
+    music_hw_trigger();
+    SWITCH_ROM(saved);
+}
+
+/* Start Ch2 (harmony) and Ch3 (wave/bass) alongside a running Ch1. */
+static void music_play_ch23(const MNote *seq2, uint16_t len2,
+                             const MNote *seq3, uint16_t len3) {
+    uint8_t saved;
+    __critical {
+        if (len2) {
+            music2_cur = seq2; music2_end = seq2+len2;
+            music2_loop = seq2; music2_timer = 0; music2_on = 1;
+        }
+        if (len3) {
+            music3_cur = seq3; music3_end = seq3+len3;
+            music3_loop = seq3; music3_timer = 0; music3_on = 1;
+        }
+    }
+    saved = CURRENT_BANK; SWITCH_ROM(MUSIC_BANK);
+    if (len2) music2_hw_trigger();
+    if (len3) music3_hw_trigger();
+    SWITCH_ROM(saved);
+}
+
+static void drum_play(const DNote *seq, uint16_t len) {
+    uint8_t saved;
+    __critical {
+        drum_cur   = seq;
+        drum_end   = seq + len;
+        drum_loop  = seq;
+        drum_timer = 0;
+        drum_on    = 1;
+    }
+    saved = CURRENT_BANK; SWITCH_ROM(MUSIC_BANK);
+    drum_hw_trigger();
+    SWITCH_ROM(saved);
+}
+
+static void music_stop(void) {
+    music_on = music2_on = music3_on = 0;
+    NR12_REG = 0x08u; NR14_REG = 0x80u;  /* Ch1 off */
+    NR22_REG = 0x08u; NR24_REG = 0x80u;  /* Ch2 off */
+    NR32_REG = 0u;                         /* Ch3 mute */
+    drum_stop();
+}
 
 /* ── Portraits ────────────────────────────────────────────── */
 /* 7x4 OBJ grid in 8x16 mode = 56x64px; portrait starts at y=48.
@@ -640,6 +830,7 @@ static void title_screen(void) {
     uint16_t i;
     uint8_t  joy, prev_joy;
 
+    music_stop();
     HIDE_WIN;
 
     SWITCH_ROM(3);
@@ -689,6 +880,7 @@ static void fade_out(void)          { delay_frames(30); /* TODO: CGB palette fad
 
 static void scene_1_classroom(void) {
     set_scene_bg(scene_classroom_tiles, SCENE_CLASSROOM_NTILES, scene_classroom_map, scene_classroom_map_attributes);
+    music_stop();
     narrate("COLLEGE ROLDUC.");
     narrate("HAVO 3.");
     narrate("Friday morning.");
@@ -708,6 +900,7 @@ static void scene_1_classroom(void) {
 
 static void scene_2_schoolyard(void) {
     set_scene_bg(scene_schoolyard_tiles, SCENE_SCHOOLYARD_NTILES, scene_schoolyard_map, scene_schoolyard_map_attributes);
+    music_stop();
     narrate("Outside the gym.\nCollege Rolduc.\nSun out.");
     narrate("Friets, BramT,\nand Tobi huddled.");
     narrate("Michel walks over.");
@@ -733,6 +926,7 @@ static void scene_2_schoolyard(void) {
 
 static void scene_5_bwl(void) {
     set_scene_bg(scene_bwl_tiles, SCENE_BWL_NTILES, scene_bwl_map, scene_bwl_map_attributes);
+    music_stop();
     narrate("Months later.");
     narrate("BLACKWING LAIR.\nRed cave palette.\nDragon eggs.");
     narrate("< Bound by Blood >");
@@ -759,6 +953,7 @@ static void scene_5_bwl(void) {
     dialogue("ARONIAN", "WIPE IT\nWIPE IT WIPE IT");
     narrate("* WIPE *");
     fade_out();
+    music_stop();
     dialogue("ARONIAN", "...");
     dialogue("ARONIAN", "who is\nthis guy");
     dialogue("OZORA", "uhhhh");
@@ -790,7 +985,9 @@ static void scene_3_living_room(void) {
     dialogue("BENNY", "sup");
     dialogue("TOBI", "play\nsomething");
     narrate("Michel picks up\nthe guitar.");
-    narrate("[Trains motif...]\n[TODO: music]");
+    music_play(music_trains_ch1, MLEN(music_trains_ch1));
+    music_play_ch23(music_trains_ch2, MLEN(music_trains_ch2),
+                    music_trains_ch3, MLEN(music_trains_ch3));
     delay_frames(120);
     dialogue("TOBI", "...");
     dialogue("TOBI", "spasti.");
@@ -802,12 +999,13 @@ static void scene_3_living_room(void) {
 
 static void scene_4_spain(void) {
     set_scene_bg(scene_spain_bar_tiles, SCENE_SPAIN_BAR_NTILES, scene_spain_bar_map, scene_spain_bar_map_attributes);
+    music_stop();
     static const char * const r1[2] = {"YES",         "NO"          };
     static const char * const r2[2] = {"Yeah ...hic", "Nope"        };
     static const char * const r3[2] = {"Mrrghhh",     "Hnnffff"     };
     static const char * const r4[2] = {"Yshhhrrgggh", "Brbbblblbbb" };
 
-    narrate("LA CUBANITA.\nEvening.");
+    narrate("LA CUBANITA\n(or smth, idk...)\nEvening.");
     narrate("Michel and Tobi\nat a table.");
     dialogue("TOBI", "...");
     dialogue("TOBI", "they're\ndefinitely\nflirting");
@@ -828,6 +1026,7 @@ static void scene_4_spain(void) {
     narrate("* BURP *");
     fade_out();
     set_scene_bg(scene_spain_bedroom_tiles, SCENE_SPAIN_BEDROOM_NTILES, scene_spain_bedroom_map, scene_spain_bedroom_map_attributes);
+    music_stop();
     narrate("BEDROOM. MORNING.");
     narrate("Tobi on the bed.\nFully horizontal.");
     dialogue("TOBI", "...");
@@ -849,6 +1048,7 @@ static void scene_4_spain(void) {
 
 static void scene_6_aachen(void) {
     set_scene_bg(scene_aachen_tiles, SCENE_AACHEN_NTILES, scene_aachen_map, scene_aachen_map_attributes);
+    music_stop();
     narrate("INSIDE THE CLUB.\nAACHEN. Late.");
     narrate("Tobi walks toward\nthe exit.\nNo words.");
     narrate("> Follow.");
@@ -867,6 +1067,7 @@ static void scene_6_aachen(void) {
     dialogue("TOBI", "...\nthanks.");
     dialogue_r("MICHEL", "yeah.");
     delay_frames(90);
+    music_stop();
     set_white_bg();
     portrait_hide();
     narrate("that night\nmoved me.");
@@ -897,7 +1098,9 @@ static void scene_7_ask(void) {
     dialogue("TOBI", "...\nmichel.");
     delay_frames(30);
     dialogue_r("MICHEL", "this whole game\nwas a question."); /* auto-wraps cleanly */
-    narrate("[Trains motif\nreturns.]\n[TODO: music]");
+    music_play(music_trains_ch1, MLEN(music_trains_ch1));
+    music_play_ch23(music_trains_ch2, MLEN(music_trains_ch2),
+                    music_trains_ch3, MLEN(music_trains_ch3));
     narrate("20+ years, tobi.");
     narrate("everything we've\nbeen through.");
     narrate("every fight.\nevery laugh.\nevery loss.");
@@ -914,7 +1117,70 @@ static void scene_7_ask(void) {
 /* ── Debug scene picker ───────────────────────────────────── */
 /* Scrollable list (UP/DOWN) of all scenes; press A to launch.
    Loops so you can jump between scenes repeatedly.            */
+static void music_test(void) {
+    static const char * const tnames[] = {
+        "TRAINS",  "ELWYNN",  "TAVERN",
+        "BATTLE",  "CLASS",   "POKEMON", "AACHEN",
+        "BWL-WIP",
+    };
+    uint8_t sel = 0, prev_sel = 255, joy, prev_joy;
+    const char *p; uint8_t x;
+
+    prev_joy = joypad();
+    while (1) {
+        if (sel != prev_sel) {
+            for (x = 1; x <= COLS; ++x) {
+                set_win_tile_xy(x, 1, T(' '));
+                set_win_tile_xy(x, 2, T(' '));
+            }
+            set_win_tile_xy(1, 1, T('>'));
+            p = tnames[sel]; x = 2;
+            while (*p && x <= COLS) { set_win_tile_xy(x, 1, T(*p++)); ++x; }
+            if (sel < 7u) {
+                p = tnames[sel + 1u]; x = 2;
+                while (*p && x <= COLS) { set_win_tile_xy(x, 2, T(*p++)); ++x; }
+            }
+            prev_sel = sel;
+        }
+        wait_vbl_done();
+        joy = joypad();
+        if ((joy & J_UP)   && !(prev_joy & J_UP)   && sel > 0)  --sel;
+        if ((joy & J_DOWN) && !(prev_joy & J_DOWN)  && sel < 7u) ++sel;
+        if ((joy & J_A) && !(prev_joy & J_A)) {
+            switch (sel) {
+                case 0: music_play(music_trains_ch1, MLEN(music_trains_ch1));
+                        music_play_ch23(music_trains_ch2, MLEN(music_trains_ch2),
+                                        music_trains_ch3, MLEN(music_trains_ch3)); break;
+                case 1: music_play(music_elwynn,    MLEN(music_elwynn));    break;
+                case 2: music_play(music_tavern,    MLEN(music_tavern));
+                        drum_play(drum_tavern,      DLEN(drum_tavern));     break;
+                case 3: music_play(music_battle_ch1, MLEN(music_battle_ch1));
+                        music_play_ch23(music_battle_ch2, MLEN(music_battle_ch2),
+                                        music_battle_ch3, MLEN(music_battle_ch3)); break;
+                case 4: music_play(music_classroom_ch1, MLEN(music_classroom_ch1));
+                        music_play_ch23(music_classroom_ch1, 0u,
+                                        music_classroom_ch3, MLEN(music_classroom_ch3)); break;
+                case 5: music_play(music_bedroom_ch1, MLEN(music_bedroom_ch1));
+                        music_play_ch23(music_bedroom_ch2, MLEN(music_bedroom_ch2),
+                                        music_bedroom_ch3, MLEN(music_bedroom_ch3)); break;
+                case 6: music_play(music_aachen,    MLEN(music_aachen));
+                        drum_play(drum_aachen,      DLEN(drum_aachen));     break;
+                case 7: music_play(music_bwl_wipe_ch1, MLEN(music_bwl_wipe_ch1));
+                        music_play_ch23(music_bwl_wipe_ch2, MLEN(music_bwl_wipe_ch2),
+                                        music_bwl_wipe_ch3, MLEN(music_bwl_wipe_ch3)); break;
+            }
+        }
+        if ((joy & J_B) && !(prev_joy & J_B)) {
+            music_stop();
+            while (joypad() & J_B) wait_vbl_done();
+            break;
+        }
+        prev_joy = joy;
+    }
+}
+
 static void debug_menu(void) {
+    music_stop();
     static const char * const names[] = {
         "1. CLASSROOM",
         "2. SCHOOLYARD",
@@ -923,6 +1189,7 @@ static void debug_menu(void) {
         "5. LIVING ROOM",
         "6. AACHEN",
         "7. THE ASK",
+        "8. MUSIC TEST",
     };
     uint8_t sel, prev_sel, joy, prev_joy, x;
     const char *p;
@@ -941,7 +1208,7 @@ static void debug_menu(void) {
                 set_win_tile_xy(1, 1, T('>'));
                 p = names[sel]; x = 2;
                 while (*p && x <= COLS) { set_win_tile_xy(x, 1, T(*p++)); ++x; }
-                if (sel + 1u < 7u) {
+                if (sel + 1u < 8u) {
                     set_win_tile_xy(1, 2, T(' '));
                     p = names[sel + 1u]; x = 2;
                     while (*p && x <= COLS) { set_win_tile_xy(x, 2, T(*p++)); ++x; }
@@ -951,7 +1218,7 @@ static void debug_menu(void) {
             wait_vbl_done();
             joy = joypad();
             if ((joy & J_UP)   && !(prev_joy & J_UP)   && sel > 0)  --sel;
-            if ((joy & J_DOWN) && !(prev_joy & J_DOWN)  && sel < 6u) ++sel;
+            if ((joy & J_DOWN) && !(prev_joy & J_DOWN)  && sel < 7u) ++sel;
             if ((joy & J_A)    && !(prev_joy & J_A)) {
                 while (joypad() & J_A) wait_vbl_done();
                 tb_clear_text();
@@ -960,15 +1227,15 @@ static void debug_menu(void) {
             prev_joy = joy;
         }
 
-        fade_out();
         switch (sel) {
-            case 0: scene_1_classroom();   break;
-            case 1: scene_2_schoolyard();  break;
-            case 2: scene_5_bwl();         break;
-            case 3: scene_4_spain();       break;
-            case 4: scene_3_living_room(); break;
-            case 5: scene_6_aachen();      break;
-            case 6: scene_7_ask();         break;
+            case 0: fade_out(); scene_1_classroom();   break;
+            case 1: fade_out(); scene_2_schoolyard();  break;
+            case 2: fade_out(); scene_5_bwl();         break;
+            case 3: fade_out(); scene_4_spain();       break;
+            case 4: fade_out(); scene_3_living_room(); break;
+            case 5: fade_out(); scene_6_aachen();      break;
+            case 6: fade_out(); scene_7_ask();         break;
+            case 7: music_test();                      break;
         }
     }
 }
@@ -986,6 +1253,7 @@ void main(void) {
     VBK_REG = 0;
     set_bkg_data(95, 9, box_tiles);
     sound_init();
+    add_VBL(music_isr);
     /* Init all portrait sprite slots off-screen */
     {
         uint8_t i;
