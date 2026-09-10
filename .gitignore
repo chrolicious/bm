@@ -21,6 +21,9 @@ build/
 # macOS noise
 .DS_Store
 
+# Windows reserved device name, unreadable by git on Windows
+nul.h
+
 # Editor cruft
 *.swp
 *~

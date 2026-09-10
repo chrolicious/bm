@@ -61,15 +61,21 @@ typedef struct { uint8_t env; uint8_t poly; uint8_t dur; } DNote;
 #define F_A5   1899u
 
 /* Stubs — awaiting new arrangements */
-extern const MNote music_trains_ch1[1];
-extern const MNote music_trains_ch2[1];
-extern const MNote music_trains_ch3[1];
+extern const MNote music_trains_ch1[24];
+extern const MNote music_trains_ch2[24];
+extern const MNote music_trains_ch3[24];
 extern const MNote music_elwynn[1];
 extern const MNote music_tavern[1];
 extern const MNote music_battle_ch1[94];
 extern const MNote music_battle_ch2[85];
 extern const MNote music_battle_ch3[218];
 extern const MNote music_aachen[1];
+extern const MNote music_ecruteak_ch1[10];
+extern const MNote music_ecruteak_ch2[19];
+extern const MNote music_ecruteak_ch3[18];
+extern const MNote music_title_track_ch1[12];
+extern const MNote music_title_track_ch2[12];
+extern const MNote music_title_track_ch3[20];
 extern const DNote drum_trains[1];
 extern const DNote drum_battle[1];
 extern const DNote drum_aachen[1];

@@ -1,0 +1,3 @@
+music_data.h written, 16 extern declarations
+music_data.c written
+main.c rewritten: 2034 -> 1270 lines
